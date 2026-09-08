@@ -457,7 +457,7 @@ a{
     position: fixed;
     right: 12px;
     top: 56px;
-    z-index: 2000;
+    z-index: 3000;
 
     opacity:0;
     visibility: hidden;
