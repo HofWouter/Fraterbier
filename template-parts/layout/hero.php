@@ -5,10 +5,7 @@ $url = $image['url'];
 
 <section class="header" style="--bg-image: url('<?php echo $url; ?>')">
     <div class="header__wrapper">
-        <div>
-            <h1><?php the_field('welkomsttext'); ?></h1>
-            <h4><?php the_field('welkomsttextondertitel'); ?></h4>
-        </div>
+        <h1><?php the_field('welkomsttext'); ?></h1>
         <?php
         $current_lang = pll_current_language();
         if ($current_lang == 'dk') {
@@ -22,7 +19,7 @@ $url = $image['url'];
         }
         ?>
 
-        <a href="#onze-bieren-container" class="btn--primary btn"><?php echo $button_text; ?></a>
-        </div>
-    
+        <a href="#onze-bieren-container" class="btn--primary btn header__button"><?php echo $button_text; ?></a>
+    </div>
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/header_overlay.png" alt="overlay" class="header__overlay">
 </section>
