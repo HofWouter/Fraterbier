@@ -22,3 +22,4 @@ jobs:
           local_path: './*' # Uploadt alles uit je git-repository
           remote_path: '/home/www/public/wp-content/themes/Frater-thema'
           delete_remote_files: true;
+          
