@@ -3,7 +3,7 @@ name: Deploy Theme to Strato
 on:
   push:
     branches:
-      - main
+      - main # Verander dit naar 'master' als jouw hoofdtak zo heet
 
 jobs:
   deploy:
@@ -15,10 +15,10 @@ jobs:
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          username: ${{ secrets.su635654 }}
-          server: ${{ secrets.5020645575.ssh.w2.strato.hosting }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          server: ${{ secrets.SFTP_HOST }}
           port: 22
-          password: ${{ secrets.Marillion1* }}
-          local_path: './*'
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: './*' # Uploadt alles uit je git-repository
           remote_path: '/home/www/public/wp-content/themes/Frater-thema'
           delete_remote_files: true;
