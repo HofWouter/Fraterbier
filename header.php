@@ -67,7 +67,7 @@
             </button>     
             </div>
             <a href="<?php echo esc_url($home_url); ?>" class="logo__link">
-                <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/frater_logo.svg">
+                <img class="logo" src="<?php echo get_template_directory_uri(); ?>/assets/frater_logo.png">
             </a>
             </div>
         </nav>

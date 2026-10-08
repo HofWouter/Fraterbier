@@ -34,7 +34,7 @@
             <div class="section footer__wrapper">
                 <div class="footer__logo-wrapper">
                     <a href="<?php echo esc_url(home_url('/home')); ?>">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/frater_logo.svg" class="logo--footer">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/frater_logo.png" class="logo--footer">
                     </a>
                 </div>
                 <div class="footer__links">

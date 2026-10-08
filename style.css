@@ -286,7 +286,7 @@ a{
 }
 
 .newsletter {
-
+    display: none;
     width: auto;
     height: auto;
 }
