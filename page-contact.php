@@ -62,7 +62,7 @@ Template Name: Contact
                  <img src="<?php echo get_template_directory_uri(); ?>/assets/mail.svg" class="icon--small">
                  <span>info@brouwgildehulsbergen.nl</span>
                 </a>
-                <a class="link" href="tel:+31611338911">
+                <a class="link" style="display: none;" href="tel:+31611338911">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/phone.svg" class="icon--small">
                     <span>+31 6 11 33 89 11</span>
                 </a>

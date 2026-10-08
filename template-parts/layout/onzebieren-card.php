@@ -53,18 +53,15 @@
         $current_lang = pll_current_language();
             if ($current_lang == 'dk') {
                 $bekijk_op__untappd = 'Læs mere på Untappd';
-                $bijschrift = 'Vi arbejder på at udvide vores udvalg, ';
-                $bijschrift_link = 'så hold øje med det';
+                $bijschrift = 'Vi arbejder på at udvide vores udvalg, så hold øje!';
             }
             else if ($current_lang == 'en') {
                 $bekijk_op__untappd = 'Read more on Untappd';
-                $bijschrift = 'We are working on expanding our selection, ';
-                $bijschrift_link = 'stay tuned';
+                $bijschrift = 'We are working on expanding our selection, stay tuned!';
             }
             else {
                 $bekijk_op__untappd = 'Bekijk op Untappd';
-                $bijschrift = 'We werken aan het uitbreiden van het assortiment, ';
-                $bijschrift_link = 'blijf op de hoogte';
+                $bijschrift = 'We werken aan het uitbreiden van het assortiment, blijf op de hoogte! ';
             }
 
         ?>
@@ -153,7 +150,6 @@
                 </div>
                 <p class="bier__caption">
                     <?php echo esc_html( $bijschrift ); ?>
-                    <a class="bier__caption-link" id="newsletter-link"><?php echo esc_html( $bijschrift_link ); ?></a>
                   </p>
             </div>
         </section>
