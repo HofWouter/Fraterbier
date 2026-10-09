@@ -1,5 +1,3 @@
-const apiUrl = 'http://frater-demo.local/wp-json/wp/v2/posts/124';
-
 let locaties = [
 
     {
