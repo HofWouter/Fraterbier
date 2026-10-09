@@ -41,7 +41,7 @@ function theme_enqueue_google_maps() {
 
     wp_enqueue_script(
         'google-maps-api', 
-        'https://maps.googleapis.com/maps/api/js?key=AIzaSyAwOC5umx3EljvVnjFpObiw3MUW0TnVwvA&libraries=places,geometry', 
+        'https://maps.googleapis.com/maps/api/js?key=AIzaSyBtcRGd5bO-7oam343JMWZoupbOA1LmRgM&libraries=places,geometry', 
         array(), 
         null, 
         true
@@ -60,7 +60,7 @@ add_action('wp_enqueue_scripts', 'thema_scripts');
 add_action('wp_enqueue_scripts', 'theme_enqueue_google_maps');
 
 function my_acf_google_map_api( $api ) {
-    $api['key'] = 'AIzaSyAwOC5umx3EljvVnjFpObiw3MUW0TnVwvA';
+    $api['key'] = 'AIzaSyBtcRGd5bO-7oam343JMWZoupbOA1LmRgM';
     return $api;
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
