@@ -1,9 +1,9 @@
 let locaties = [
 
     {
-        lat: 52.51243536614555,
-        lng: 6.095706068316046,
-        naam: "Cafe de Gezelligheid"
+        lat: 52.4746,
+        lng: 6.0688,
+        naam: "Gall & Gall Hattem"
     },
 
     {
