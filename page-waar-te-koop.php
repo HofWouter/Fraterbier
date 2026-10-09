@@ -39,25 +39,24 @@ if ($current_lang == 'da') {
             <hr>
         </div>
             <div class="waar-te-koop__text">
-                                <?php
+                <?php
                 $acf_locaties = array();
 
-                // Loop door de genummerde ACF velden (bijv. locatie1 t/m locatie10)
                 for ( $i = 1; $i <= 10; $i++ ) {
-                    $locatie_veld = get_field( 'locatie' . $i ); // Veldnamen: locatie1, locatie2, etc.
+                    $locatie_veld = get_field( 'locatie' . $i );
 
                     if ( $locatie_veld ) {
                         $acf_locaties[] = array(
-                            'lat'  => $locatie_veld['lat'],
-                            'lng'  => $locatie_veld['lng'],
-                            'naam' => !empty($locatie_veld['name']) ? $locatie_veld['name'] : get_the_title(),
+                            'lat'   => $locatie_veld['lat'],
+                            'lng'   => $locatie_veld['lng'],
+                            'naam'  => !empty($locatie_veld['name']) ? $locatie_veld['name'] : get_the_title(),
+                            'adres' => !empty($locatie_veld['address']) ? $locatie_veld['address'] : '', // Extra adres-veld
                         );
                     }
                 }
                 ?>
 
                 <script>
-                    // Geef de PHP array door aan de JavaScript variabele 'locaties'
                     var locaties = <?php echo json_encode( $acf_locaties ); ?>;
                 </script>
                 <div id="map" class="kaart"></div>
