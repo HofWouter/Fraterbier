@@ -39,9 +39,30 @@ if ($current_lang == 'da') {
             <hr>
         </div>
             <div class="waar-te-koop__text">
+                                <?php
+                $acf_locaties = array();
+
+                // Loop door de genummerde ACF velden (bijv. locatie1 t/m locatie10)
+                for ( $i = 1; $i <= 10; $i++ ) {
+                    $locatie_veld = get_field( 'locatie' . $i ); // Veldnamen: locatie1, locatie2, etc.
+
+                    if ( $locatie_veld ) {
+                        $acf_locaties[] = array(
+                            'lat'  => $locatie_veld['lat'],
+                            'lng'  => $locatie_veld['lng'],
+                            'naam' => !empty($locatie_veld['name']) ? $locatie_veld['name'] : get_the_title(),
+                        );
+                    }
+                }
+                ?>
+
+                <script>
+                    // Geef de PHP array door aan de JavaScript variabele 'locaties'
+                    var locaties = <?php echo json_encode( $acf_locaties ); ?>;
+                </script>
                 <div id="map" class="kaart"></div>
                 <div class="verkooppunt-container">
-                    <div class="verkooppunt-wrapper">
+                <div class="verkooppunt-wrapper">
                     <div class="verkooppunt-wrapper">
                         <div class="verkooppunt-samen">
                             <div class="verkooppunt-info">
@@ -131,7 +152,7 @@ if ($current_lang == 'da') {
                         <hr>
                     </div>   
                     </div>
-                    </div>
+                </div>
                     <label for="show-more-check" class="btn btn--secondary show-more-btn">
                         <span class="text-more">Bekijk meer</span>
                         <span class="text-less">Bekijk minder</span>
