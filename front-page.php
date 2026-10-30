@@ -5,5 +5,6 @@
         <?php get_template_part('template-parts/layout/wapenveld', 'card'); ?>
         <?php get_template_part('template-parts/layout/onzebieren', 'card'); ?>
         <?php get_template_part('template-parts/layout/landschap', 'card'); ?>
+        <?php get_template_part('template-parts/layout/googlemaps', 'card'); ?>
 </main>
 <?php get_footer(); ?>

@@ -1285,7 +1285,7 @@ nav {
 
     .kaart{
 
-        width: calc(50vw - 8vw);
+        width: 100%;
         height: calc(50vw - 8vw);
 
     }
@@ -1391,7 +1391,6 @@ nav {
 
     .kaart{
 
-        width: 50vw;
         height: 30vw;
 
     }

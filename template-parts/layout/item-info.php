@@ -54,7 +54,7 @@ $current_lang = pll_current_language();
     $bestel_page_url = get_permalink( $bestel_page_id );
 ?>
 
-<a href="<?php echo esc_url( $bestel_page_url ); ?>"><button class="btn--primary btn btn--secondary"><?php echo $button_text; ?></button></a>
+<!--<a href="<?php echo esc_url( $bestel_page_url ); ?>"><button class="btn--primary btn btn--secondary"><?php echo $button_text; ?></button></a>-->
 
 <div class="bier__type-wrapper">
     <h5><?php echo esc_html( $Smaakprofiel_text ); ?></h5>
