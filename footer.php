@@ -22,7 +22,7 @@
     $onsverhaal_url = (get_permalink( $onsverhaal_id ));
 
     $waar_te_koop_id = pll_get_post( 124 );
-    $waar_te_koop_url = (get_permalink( $waar_te_koop_id ));
+    $waar_te_koop_url = (get_permalink( $onzebieren_id ) . '#google-maps-kaart');
 
     $contact_id = pll_get_post( 226 );
     $contact_url = (get_permalink( $contact_id ));

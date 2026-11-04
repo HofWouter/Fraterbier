@@ -1,4 +1,4 @@
-<section class="section waar-te-koop--accent">
+<section class="section waar-te-koop--accent id="google-maps-kaart">
     <div class="section__title">
         <hr>
         <h2>Verkooppunten</h2>
