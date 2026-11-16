@@ -13,10 +13,30 @@
        <section class="menu">
             <div class="menu__wrapper">
             <div class="menu__link-list">
-            <a href="<?php echo esc_url($ons_verhaal_url); ?>" class="menu__link"><span><?php if (function_exists('pll_e')) { pll_e('Ons verhaal'); } else { echo 'Ons verhaal'; } ?></span></a>
-            <a href="<?php echo esc_url(($onze_bieren_page_url) . '#onze-bieren-container'); ?>" class="menu__link"><span><?php if (function_exists('pll_e')) { pll_e('Onze bieren'); } else { echo 'Onze bieren'; } ?></span></a>
-            <a href="<?php echo esc_url(($onze_bieren_page_url) . '#google-maps-kaart'); ?>" class="menu__link"><span><?php if (function_exists('pll_e')) { pll_e('Waar te koop?'); } else { echo 'Waar te koop?'; } ?></span></a>
-            <a href="<?php echo esc_url($contact_page_url); ?>" class="menu__link"><span><?php if (function_exists('pll_e')) { pll_e('Contact'); } else { echo 'Contact'; } ?></span></a>
+            <a href="<?php echo esc_url($ons_verhaal_url); ?>" class="menu__link">
+                <span><?php if (function_exists('pll_e')) { pll_e('Onze geschiedenis'); }
+                    else { echo 'Onze geschiedenis'; }
+                    ?>
+                </span>
+            </a>
+            <a href="<?php echo esc_url(($onze_bieren_page_url) . '#onze-bieren-container'); ?>" class="menu__link">
+                <span><?php if (function_exists('pll_e')) { pll_e('Onze bieren'); }
+                else { echo 'Onze bieren'; }
+                ?>
+                </span>
+            </a>
+            <a href="<?php echo esc_url(($onze_bieren_page_url) . '#google-maps-kaart'); ?>" class="menu__link">
+                <span><?php if (function_exists('pll_e')) { pll_e('Waar te koop?'); }
+                else { echo 'Waar te koop?'; }
+                ?>
+                </span>
+            </a>
+            <a href="<?php echo esc_url($contact_page_url); ?>" class="menu__link">
+                <span><?php if (function_exists('pll_e')) { pll_e('Contact'); }
+                else { echo 'Contact'; }
+                ?>
+                </span>
+            </a>
             </div>
             <div class="newsletter">
                 <div>
