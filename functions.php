@@ -69,7 +69,7 @@ add_action('init', function() {
     if (function_exists('pll_register_string')) {
         pll_register_string('Ga snel naar', 'Ga snel naar', 'Links');
         pll_register_string('Onze bieren', 'Onze bieren', 'Links');
-        pll_register_string('Ons verhaal', 'Ons verhaal', 'Links');
+        pll_register_string('Onze geschiedenis', 'Onze geschiedenis', 'Links');
         pll_register_string('Waar te koop?', 'Waar te koop?', 'Links');
         pll_register_string('Contact', 'Contact', 'Links');
         pll_register_string('Adres kop', 'Adres', 'Links');
