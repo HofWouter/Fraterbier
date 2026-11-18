@@ -461,6 +461,13 @@ a{
     visibility: hidden;
 }
 
+#btn-language--selector .nav--btn,
+#btn-language--selector .btn--language {
+    color: #F6F3F0;
+    font-family: 'Fago Office Serif Bold';
+    font-size: 16px;
+}
+
 #btn-language--selector.is-active {
     opacity: 1;
     transform: translateY(0);
