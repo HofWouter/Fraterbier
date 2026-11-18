@@ -15,6 +15,12 @@ menu_button.addEventListener('click', () =>{
     fullscreen_menu.classList.toggle('is-open');
 });
 
+fullscreen_menu.querySelectorAll('.menu__link').forEach((link) => {
+    link.addEventListener('click', () => {
+        fullscreen_menu.classList.remove('is-active', 'is-open');
+    });
+});
+
 const titleHeaders = document.querySelectorAll('.section__title h2, .header .header__wrapper h1');
 
 if (titleHeaders.length > 0) {

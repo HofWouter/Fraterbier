@@ -20,7 +20,7 @@ function thema_scripts() {
         'menu-script',
         get_template_directory_uri() . '/menu.js',
         array(),
-        '1.0.0',
+        '1.0.1',
         true
 
     );
