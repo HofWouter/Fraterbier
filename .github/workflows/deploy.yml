@@ -40,6 +40,8 @@ jobs:
           remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
           # Niet verwijderen: anders verdwijnen .env, storage/ en public_html/uploads/ op de server
           delete_remote_files: false
+          # Strato staat geen SSH-commando's toe, alleen SFTP-uploads
+          sftp_only: true
 
       # Na het uploaden moet `php craft up` op de server draaien (via SSH of het
       # Strato-controlepaneel) om migraties en project config toe te passen.
