@@ -1,10 +1,20 @@
-name: Deploy Craft-site naar Strato
+name: Deploy Craft-site naar server
 
-# Alleen handmatig starten (Actions > Deploy > Run workflow).
+# Start automatisch bij elke push naar main, of handmatig (Actions > Deploy > Run workflow).
 # Benodigde secrets: SERVER_HOST, SERVER_USERNAME, SERVER_PASSWORD, SFTP_REMOTE_PATH
 # SFTP_REMOTE_PATH = de map van het Craft-project op de server (de map BOVEN public_html/).
 on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'README.md'
+      - '.ddev/**'
   workflow_dispatch:
+
+# Nooit twee deploys tegelijk: een nieuwe push wacht tot de lopende deploy klaar is.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -29,19 +39,48 @@ jobs:
       - name: CSS bouwen (Tailwind)
         run: npm ci && npm run build && rm -rf node_modules
 
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          username: ${{ secrets.SERVER_USERNAME }}
-          server: ${{ secrets.SERVER_HOST }}
-          port: 22
-          password: ${{ secrets.SERVER_PASSWORD }}
-          local_path: './*'
-          remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
-          # Niet verwijderen: anders verdwijnen .env, storage/ en public_html/uploads/ op de server
-          delete_remote_files: false
-          # Strato staat geen SSH-commando's toe, alleen SFTP-uploads
-          sftp_only: true
+      - name: lftp installeren
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      # Strato staat geen SSH-commando's toe, alleen SFTP. lftp werkt via SFTP,
+      # uploadt meerdere bestanden tegelijk en slaat vendor/ over als composer.lock
+      # niet veranderd is. Er wordt niets op de server verwijderd, dus .env, storage/
+      # en public_html/uploads/ blijven staan.
+      - name: Deploy via SFTP (lftp)
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_USERNAME: ${{ secrets.SERVER_USERNAME }}
+          LFTP_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+          REMOTE_PATH: ${{ secrets.SFTP_REMOTE_PATH }}
+        run: |
+          set -euo pipefail
+          REMOTE="${REMOTE_PATH%/}"
+          SETTINGS="set cmd:fail-exit yes; set sftp:auto-confirm yes; set net:max-retries 3; set net:timeout 30; set net:reconnect-interval-base 5"
+          run_lftp() {
+            lftp -u "$SERVER_USERNAME" --env-password "sftp://$SERVER_HOST" -e "$SETTINGS; $1; bye"
+          }
+
+          # 1. Projectbestanden (zonder vendor/): klein, dus elke keer alles.
+          run_lftp "mirror --reverse --parallel=10 --no-perms --verbose=1 \
+            -x '^\.git/' -x '^\.github/' -x '^\.ddev/' -x '^node_modules/' -x '^vendor/' \
+            -x '^storage/' -x '^public_html/uploads/' -x '^public_html/cpresources/' \
+            -x '^\.env$' -x '\.DS_Store$' \
+            ./ \"$REMOTE\""
+
+          # 2. vendor/: alleen als composer.lock veranderd is sinds de vorige deploy.
+          LOCK_HASH=$(sha256sum composer.lock | cut -d' ' -f1)
+          REMOTE_HASH=$(run_lftp "cat \"$REMOTE/vendor/.deployed-lock-hash\"" 2>/dev/null | tr -d '[:space:]' || true)
+          if [ "$LOCK_HASH" = "$REMOTE_HASH" ]; then
+            echo "composer.lock ongewijzigd: vendor/ wordt overgeslagen."
+          else
+            echo "composer.lock gewijzigd (of eerste deploy): vendor/ wordt bijgewerkt."
+            # --ignore-time: alleen bestanden die ontbreken of een andere grootte hebben.
+            run_lftp "mirror --reverse --parallel=10 --no-perms --ignore-time --verbose=1 \
+              vendor/ \"$REMOTE/vendor\""
+            # Markering pas na een geslaagde upload, zodat een mislukte upload opnieuw wordt geprobeerd.
+            echo "$LOCK_HASH" > .deployed-lock-hash
+            run_lftp "put .deployed-lock-hash -o \"$REMOTE/vendor/.deployed-lock-hash\""
+          fi
 
       # Na het uploaden moet `php craft up` op de server draaien (via SSH of het
       # Strato-controlepaneel) om migraties en project config toe te passen.
