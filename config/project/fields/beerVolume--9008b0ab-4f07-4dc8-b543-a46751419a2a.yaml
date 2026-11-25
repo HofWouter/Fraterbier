@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: beerVolume
+instructions: null
+name: Inhoud
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: null
+  suffix: ml
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
+warning: null

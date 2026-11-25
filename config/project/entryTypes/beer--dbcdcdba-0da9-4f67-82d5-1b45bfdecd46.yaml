@@ -1,0 +1,235 @@
+allowLineBreaksInTitles: false
+color: amber
+description: null
+fieldLayouts:
+  55531709-365b-46bf-870b-25970d3e27cc:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: 'Naam van het bier'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 34293548-5d56-4562-b9ac-1dbb76686ab4
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b27ace8d-41e9-40d8-bde9-39e5fbafb94a # Afbeelding bier
+            handle: null
+            instructions: null
+            label: 'Foto (fles of glas)'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 66d31853-38d4-42c0-9b15-cfa58d863465
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 9008b0ab-4f07-4dc8-b543-a46751419a2a # Inhoud
+            handle: null
+            instructions: null
+            label: Inhoud
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3804aa41-ec60-408f-8894-70e97879847b
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 675ee3b7-7b15-484b-b198-7fbb00539a68 # Alcoholpercentage
+            handle: null
+            instructions: null
+            label: Alcoholpercentage
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fdc153d4-cf4d-415a-b16d-bf285e61f098
+            userCondition: null
+            warning: null
+            width: 50
+        name: Bier
+        uid: a0d8e6e6-3890-459f-a5ca-de215d947820
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: ebf681ad-bd5f-402c-80e9-d400b8f26bc0 # Smaakprofiel
+            handle: null
+            instructions: null
+            label: Smaakprofiel
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4f80a0ea-c1ce-4b9b-a870-c5b912a0c481
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 93491444-23cb-45f7-b6fa-5cda1c55f586 # Serveersuggestie
+            handle: null
+            instructions: null
+            label: Serveersuggestie
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b95a8b66-fa96-4bf5-8c78-ef92cdd33486
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 82043678-7c60-448e-86ec-7e9b7472cf43 # Ingrediënten
+            handle: null
+            instructions: null
+            label: Ingrediënten
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d7a09771-8515-4a40-bbe9-1e7913b00a66
+            userCondition: null
+            warning: null
+            width: 50
+        name: Beschrijving
+        uid: 135221b8-c964-4fc6-b364-34e8b97ce216
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            elementCondition: null
+            heading: 'Kleuren van de bierensectie'
+            type: craft\fieldlayoutelements\Heading
+            uid: e6a97493-f06d-4b3c-a19c-e79a0af731c7
+            userCondition: null
+          -
+            dateAdded: null
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'Als dit bier in de carrousel staat, krijgt de sectie deze kleuren.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 0d49a1b8-e9a4-4139-984a-74a62bc60a81
+            userCondition: null
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a723da83-4b92-4287-9a2b-130a54435cbc # Achtergrondkleur
+            handle: null
+            instructions: null
+            label: Achtergrondkleur
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1fe3479f-4738-4987-8fbc-23cdb4118160
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 59fe7379-0711-4aa0-a7e4-d134e29168f0 # Tekstkleur
+            handle: null
+            instructions: null
+            label: Tekstkleur
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0605185d-1a4a-40fd-a1f0-8951b1a61218
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 1c73dbff-eb06-463a-942a-a1a3b5faed4a # Untappd-link
+            handle: null
+            instructions: null
+            label: 'Link naar Untappd'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6aab9db8-7d6a-4459-a974-a1a77c682cbd
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Weergave & links'
+        uid: 5c248270-d115-4608-9683-20b05876d1db
+        userCondition: null
+    thumbFieldKey: null
+handle: beer
+hasTitleField: true
+icon: beer-mug-empty
+name: Bier
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: none
+uiLabelFormat: '{title}'

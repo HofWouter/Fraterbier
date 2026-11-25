@@ -1,0 +1,13 @@
+{
+  "name": "frater-bier",
+  "private": true,
+  "description": "Frater Bier (Craft CMS): CSS met Tailwind",
+  "scripts": {
+    "build": "tailwindcss -i ./src/css/app.css -o ./public_html/css/style.css --minify",
+    "dev": "tailwindcss -i ./src/css/app.css -o ./public_html/css/style.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.5",
+    "tailwindcss": "^4.3.5"
+  }
+}

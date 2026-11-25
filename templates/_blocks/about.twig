@@ -1,0 +1,16 @@
+{# Over ons: vervangt template-parts/layout/contentblock.php #}
+{% set aboutUrl = entry.aboutLink.url ?? onsVerhaal.url ?? null %}
+
+<section class="section items-center justify-center bg-cream text-center text-navy">
+    {% include '_partials/section-title' with { title: entry.aboutTitle } only %}
+    <div class="flex max-w-[500px] flex-col items-center justify-center gap-[26px] text-center md:max-w-[700px] md:gap-6">
+        <h2>{{ entry.aboutSubtitle }}</h2>
+        <div class="rich-text flex flex-col items-center justify-center text-center">
+            {{ entry.aboutText }}
+
+            {% if aboutUrl %}
+                <a href="{{ aboutUrl }}" class="btn btn-primary">{{ 'Lees meer'|t }}</a>
+            {% endif %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: orderEmail
+instructions: null
+name: 'Bestelling – e-mailadres'
+searchable: false
+settings:
+  placeholder: null
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Email
+warning: null

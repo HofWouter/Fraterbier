@@ -1,0 +1,13 @@
+{# Taalkiezer: vervangt template-parts/ui/language_selector.php (Polylang). Wordt geopend via #language-btn (menu.js) #}
+<div id="btn-language--selector"
+    class="invisible fixed top-14 right-3 z-[3000] flex w-fit flex-col rounded-card bg-navy fill-cream text-cream opacity-0 is-active:visible is-active:opacity-100 md:right-[calc(8vw-20px)]">
+    <button class="btn">
+        <span class="font-body-bold text-ui text-cream">{{ currentSite.handle|upper }}</span>
+    </button>
+
+    {% for item in localizedUrls|filter(item => not item.current) %}
+        <a href="{{ item.url }}" class="btn" hreflang="{{ item.site.language }}">
+            <span class="font-body-bold text-ui text-cream">{{ item.site.handle|upper }}</span>
+        </a>
+    {% endfor %}
+</div>

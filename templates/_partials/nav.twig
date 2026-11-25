@@ -1,0 +1,33 @@
+{% set homeUrl = siteUrl() %}
+{% set navBtn = 'flex items-center gap-2 py-4 font-body-bold text-ui text-navy' %}
+
+<nav class="fixed top-0 left-0 z-[2000] w-full border-b-4 border-navy bg-cream">
+    <div class="mx-6 flex items-center justify-between md:mx-[8vw]">
+        <div class="flex gap-4 md:gap-8">
+            <button class="{{ navBtn }} hidden md:flex">
+                <a href="{{ homeUrl }}">HOME</a>
+            </button>
+            <div class="{{ navBtn }}">
+                <a href="https://untappd.com/BrouwgildeHulsbergen" target="_blank" rel="noopener" aria-label="Untappd">
+                    {% include '_partials/icons/untappd' %}
+                </a>
+            </div>
+            <button class="{{ navBtn }} hidden md:flex">
+                <a href="{{ homeUrl }}#onze-bieren-container" class="btn btn-primary my-0">{{ 'Onze bieren'|t }}</a>
+            </button>
+        </div>
+        <div class="flex gap-4 md:gap-8">
+            <button class="{{ navBtn }}" id="menu-btn">
+                <span class="{{ navBtn }} hidden md:flex">MENU</span>
+                <img src="{{ alias('@web/assets/menu.svg') }}" alt="">
+            </button>
+            <button class="{{ navBtn }}" id="language-btn">
+                <span>{{ currentSite.handle|upper }}</span>
+                <img src="{{ alias('@web/assets/arrow_dropdown.svg') }}" alt="">
+            </button>
+        </div>
+        <a href="{{ homeUrl }}" class="absolute top-4 left-1/2 z-10 -translate-x-1/2">
+            <img class="block h-auto w-[170px] lg:w-[200px]" src="{{ alias('@web/assets/frater_logo.png') }}" alt="Frater">
+        </a>
+    </div>
+</nav>

@@ -1,0 +1,16 @@
+{# Disclaimer / Auteursrechten: linkt naar een pagina met die slug als die bestaat #}
+{% set disclaimerPage = craft.entries.section('pages').slug('disclaimer').one() %}
+{% set copyrightPage = craft.entries.section('pages').slug('auteursrechten').one() %}
+
+<div class="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 md:gap-8">
+    <div class="py-3">
+        <a{% if disclaimerPage %} href="{{ disclaimerPage.url }}"{% endif %}><p>{{ 'Disclaimer'|t }}</p></a>
+    </div>
+    {% include '_partials/icons/water' with { fill: '#F6F3F0' } %}
+    <div class="py-3">
+        <a{% if copyrightPage %} href="{{ copyrightPage.url }}"{% endif %}><p>{{ 'Auteursrechten'|t }}</p></a>
+    </div>
+</div>
+<div class="py-3">
+    <p>{{ 'Ontwerp door:'|t }} <a href="https://www.wouterhof.com" target="_blank" rel="noopener">wouterhof.com</a></p>
+</div>

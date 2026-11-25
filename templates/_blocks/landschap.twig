@@ -1,0 +1,5 @@
+{% include '_blocks/photo-block' with {
+    id: 'landschap',
+    image: siteInfo.landscapeImage.one() ?? null,
+    title: siteInfo.landscapeTitle ?? '',
+} only %}

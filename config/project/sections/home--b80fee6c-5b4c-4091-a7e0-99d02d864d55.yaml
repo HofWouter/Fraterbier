@@ -1,0 +1,26 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 7a2b551f-5063-45f6-9ae5-aa8daab18bb8 # Home
+handle: home
+maxAuthors: 1
+minAuthors: 1
+name: Home
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  26d745cd-5fb4-4198-9690-b577dfef5785: # Nederlands
+    enabledByDefault: true
+    hasUrls: true
+    template: _singles/home
+    uriFormat: __home__
+  57444c3f-acfe-4b1d-a4cb-d6a7bde3e425: # Dansk
+    enabledByDefault: true
+    hasUrls: true
+    template: _singles/home
+    uriFormat: __home__
+type: single

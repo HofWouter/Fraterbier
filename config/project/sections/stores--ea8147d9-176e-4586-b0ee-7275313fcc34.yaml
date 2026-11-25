@@ -1,0 +1,26 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: bac92ddd-e5d3-45cd-940d-1b5a19a27cd3 # Verkooppunt
+handle: stores
+maxAuthors: 1
+minAuthors: 1
+name: Verkooppunten
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  26d745cd-5fb4-4198-9690-b577dfef5785: # Nederlands
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+  57444c3f-acfe-4b1d-a4cb-d6a7bde3e425: # Dansk
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

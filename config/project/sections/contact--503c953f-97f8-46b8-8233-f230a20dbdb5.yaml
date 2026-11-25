@@ -1,0 +1,26 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 2329b322-6688-4e9d-a167-f004f0143d6a # Contact
+handle: contact
+maxAuthors: 1
+minAuthors: 1
+name: Contact
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  26d745cd-5fb4-4198-9690-b577dfef5785: # Nederlands
+    enabledByDefault: true
+    hasUrls: true
+    template: _singles/contact
+    uriFormat: contact
+  57444c3f-acfe-4b1d-a4cb-d6a7bde3e425: # Dansk
+    enabledByDefault: true
+    hasUrls: true
+    template: _singles/contact
+    uriFormat: kontakt
+type: single

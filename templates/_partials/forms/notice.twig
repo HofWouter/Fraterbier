@@ -1,0 +1,5 @@
+{# Melding na het versturen van een formulier (gezet door de Contact Form-plugin) #}
+{% set success = craft.app.session.getFlash('success') %}
+{% set error = craft.app.session.getFlash('error') %}
+{% if success %}<p class="m-0">{{ success }}</p>{% endif %}
+{% if error %}<p class="m-0 text-small text-error">{{ error }}</p>{% endif %}

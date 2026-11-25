@@ -1,0 +1,18 @@
+columnSuffix: null
+handle: companyPhone
+instructions: 'Wordt alleen getoond als dit is ingevuld.'
+name: Telefoonnummer
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 1
+  multiline: false
+  placeholder: null
+  uiMode: normal
+tip: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\PlainText
+warning: null

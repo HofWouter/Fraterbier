@@ -1,0 +1,17 @@
+columnSuffix: null
+handle: aboutLink
+instructions: 'Laat leeg om naar "Ons verhaal" te linken.'
+name: 'Over ons – link'
+searchable: false
+settings:
+  fullGraphqlData: true
+  maxLength: 255
+  showLabelField: false
+  types:
+    - entry
+    - url
+tip: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Link
+warning: null

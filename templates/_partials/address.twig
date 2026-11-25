@@ -1,0 +1,24 @@
+{# Adres + contactgegevens uit de Global Set "Algemeen" (siteInfo) #}
+{% set address = siteInfo.companyAddress ?? null %}
+{% set email = (siteInfo.companyEmail ?? null) ?: 'info@brouwgildehulsbergen.nl' %}
+{% set phone = siteInfo.companyPhone ?? null %}
+{% set icon = 'flex size-6 shrink-0 items-center justify-center overflow-hidden' %}
+
+<p class="opacity-30">{{ 'Adres'|t }}</p>
+<p class="link">
+    {%- if address -%}
+        {{ address|nl2br }}
+    {%- else -%}
+        Brouwgilde Hulsbergen<br>Kloosterweg 3<br>8191 JA Wapenveld<br>{{ 'Nederland'|t }}
+    {%- endif -%}
+</p>
+<a class="link" href="mailto:{{ email }}">
+    <img src="{{ alias('@web/assets/mail.svg') }}" class="{{ icon }}" alt="">
+    <span>{{ email }}</span>
+</a>
+{% if phone %}
+    <a class="link" href="tel:{{ phone|replace('/[^0-9+]/', '') }}">
+        <img src="{{ alias('@web/assets/phone.svg') }}" class="{{ icon }}" alt="">
+        <span>{{ phone }}</span>
+    </a>
+{% endif %}

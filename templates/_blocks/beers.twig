@@ -1,0 +1,111 @@
+{#
+ # Onze bieren (carousel): vervangt onzebieren-card.php + item-info.php.
+ # De bieren komen uit de structuur-sectie "Bieren"; volgorde = volgorde in het CP.
+ # Wisselen gebeurt in carousel.js (data-beer, data-beer-btn, data-carousel-images/labels).
+ #}
+{% set beers = craft.entries.section('beers').with(['beerImage']).all() %}
+
+{% set defaultColors = { bg: '#743B5F', text: '#f6f3f0' } %}
+{% set beerColors = beers|map(beer => {
+    bg: beer.backgroundColor.hex ?? defaultColors.bg,
+    text: beer.textColor.hex ?? defaultColors.text,
+}) %}
+{% set firstColors = beerColors|first ?: defaultColors %}
+
+{# Bier en Untappd-knop liggen op elkaar; alleen de actieve is zichtbaar #}
+{% set fade = '[grid-area:1/1] pointer-events-none z-0 opacity-0 transition-opacity duration-400 ease-in-out will-change-[opacity] is-active:pointer-events-auto is-active:z-1 is-active:opacity-100' %}
+{% set carousel = 'relative m-auto flex w-full flex-col items-center overflow-hidden' %}
+{% set arrowBtn = 'transition-transform duration-200 ease-in-out hover:scale-110' %}
+
+<section class="section transition-[background-color] duration-500 ease-in-out" id="onze-bieren-container"
+    style="background-color: {{ firstColors.bg }}; color: {{ firstColors.text }};"
+    data-beer-colors="{{ beerColors|json_encode }}">
+    {% include '_partials/section-title' with { title: entry.beersTitle ?? 'Onze bieren'|t } only %}
+    <div>
+        {% if beers|length %}
+        <div class="flex w-full items-center justify-between overflow-hidden">
+            {% include '_partials/icons/water' %}
+            <div class="grid grid-cols-1 items-center justify-items-center md:grid-cols-2">
+                <div class="{{ carousel }}">
+                    <div class="flex w-full transition-transform duration-500 ease-in-out" data-carousel-images>
+                        {% for beer in beers %}
+                            {% set image = beer.beerImage|first %}
+                            <div class="min-w-full text-center">
+                                {% if image %}<img src="{{ image.url }}" alt="{{ beer.title }}" class="inline max-w-none">{% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 items-center">
+                    {% for beer in beers %}
+                        <div data-beer class="{{ fade }} relative h-fit py-6 md:py-8 lg:w-[500px]{{ loop.first ? ' is-active' }}">
+                            <div>
+                                <div class="flex flex-col items-center justify-between lg:flex-row">
+                                    <h3 class="m-0 text-[40px] md:text-[48px]">{{ beer.title }}</h3>
+                                    <div class="flex items-center gap-[26px]">
+                                        {% if beer.beerVolume %}<h5>{{ beer.beerVolume }}ml</h5>{% endif %}
+                                        {% if beer.beerAlcohol %}<h5>ALC. {{ beer.beerAlcohol|number_format(1, ',', '.') }}%</h5>{% endif %}
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+
+                            {# Bestelknop: naar de bestelpagina, direct bij dit bier #}
+                            {% if bestellen.url ?? null %}
+                                <form method="get" action="{{ bestellen.url }}#bier-{{ beer.id }}" class="my-[1rem] flex flex-wrap justify-between items-center gap-4">
+                                    <label for="carousel-aantal-{{ beer.id }}" class="sr-only">{{ 'Aantal dozen'|t }} {{ beer.title }}</label>
+                                    {% include '_partials/forms/quantity' with {
+                                        id: 'carousel-aantal-' ~ beer.id, name: 'dozen[' ~ beer.id ~ ']', label: beer.title,
+                                        value: 1, min: 1, color: 'text-current', class: 'w-[140px]',
+                                    } only %}
+                                    <button type="submit" class="btn btn-primary my-0 bg-sky text-cream">{{ 'Bestellen'|t }}</button>
+                                </form>
+                            {% endif %}
+
+                            <div class="rich-text">
+                                <h5>{{ 'Smaakprofiel'|t }}</h5>
+                                {{ beer.tasteProfile }}
+                                <h5>{{ 'Serveersuggestie'|t }}</h5>
+                                <p>{{ beer.servingSuggestion }}</p>
+                                <h5>{{ 'Ingrediënten'|t }}</h5>
+                                <p>{{ beer.ingredients }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="btn">
+                    <button class="{{ arrowBtn }}" onclick="moveSlide(-1)" aria-label="{{ 'Vorige'|t }}">
+                        <img src="{{ alias('@web/assets/chevron_left.svg') }}" alt="">
+                    </button>
+                    <div class="btn border-4 border-solid">
+                        <div class="{{ carousel }}">
+                            <div class="flex w-[114px] transition-transform duration-500 ease-in-out" data-carousel-labels>
+                                {% for beer in beers %}
+                                    <div class="min-w-full text-center"><span>{{ beer.title }}</span></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <button class="{{ arrowBtn }}" onclick="moveSlide(1)" aria-label="{{ 'Volgende'|t }}">
+                        <img src="{{ alias('@web/assets/chevron_right.svg') }}" alt="">
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 items-center">
+                    {% for beer in beers %}
+                        <div data-beer-btn class="btn {{ fade }}{{ loop.first ? ' is-active' }}">
+                            {% if beer.untappdUrl.url ?? null %}
+                                <a class="link" href="{{ beer.untappdUrl.url }}" target="_blank" rel="noopener">
+                                    {% include '_partials/icons/untappd' %}
+                                    <span>{{ 'Bekijk op Untappd'|t }}</span>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% include '_partials/icons/water' %}
+        </div>
+        {% endif %}
+        <p class="text-center opacity-20">{{ 'We werken aan het uitbreiden van het assortiment, blijf op de hoogte!'|t }}</p>
+    </div>
+</section>

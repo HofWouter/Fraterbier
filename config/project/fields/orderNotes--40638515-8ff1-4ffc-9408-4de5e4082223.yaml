@@ -1,0 +1,18 @@
+columnSuffix: null
+handle: orderNotes
+instructions: null
+name: 'Bestelling – opmerkingen'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: true
+  placeholder: null
+  uiMode: normal
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
+warning: null

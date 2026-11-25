@@ -1,0 +1,80 @@
+allowLineBreaksInTitles: false
+color: teal
+description: null
+fieldLayouts:
+  e3c0aa28-f744-449c-893f-81a13eff2e12:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: Paginatitel
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: c21fc2ce-4431-4879-8f21-b8950ffd9948
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f03b9a51-af4b-4cab-b648-e86e3433b7c6 # Tekst
+            handle: null
+            instructions: 'Staat onder de kop "Benieuwd naar meer?".'
+            label: Introductietekst
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a4430df5-58e8-4710-8485-21db2dc76e14
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'Het adres en e-mailadres komen uit **Globals → Algemeen**. Het contactformulier wordt automatisch onder de tekst geplaatst.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 83e9867c-c5f1-4ae1-8cc8-e2d415aa58fd
+            userCondition: null
+        name: Inhoud
+        uid: dd876bb9-460b-42d2-8229-d936ba8cf517
+        userCondition: null
+    thumbFieldKey: null
+handle: contact
+hasTitleField: true
+icon: envelope
+name: Contact
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

@@ -1,0 +1,175 @@
+allowLineBreaksInTitles: false
+color: blue
+description: null
+fieldLayouts:
+  9d6ac2d5-0597-409c-913e-ff3434451091:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'Het grote beeld bovenaan de homepage.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 998bb432-82d4-4e32-a1d8-0df9e0673c80
+            userCondition: null
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 722233c1-16f4-4fc9-9ace-8b113aea28e1 # Hero-achtergrondfoto
+            handle: null
+            instructions: null
+            label: Achtergrondfoto
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 71f8a245-9b2d-4d56-b34f-502280bd7e81
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a55404cc-ca60-4e92-934b-3955c30c24eb # Welkomsttekst
+            handle: null
+            instructions: 'De grote tekst over de foto.'
+            label: Welkomsttekst
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: eb52d220-165b-42b8-bf36-a777da087a45
+            userCondition: null
+            warning: null
+            width: 50
+        name: Hero
+        uid: 16a714ae-a025-4ad9-ae2a-7ad9a80e149c
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: cb9c5700-262c-4f9f-bafc-5e4e6a49be05 # Over ons – titel
+            handle: null
+            instructions: null
+            label: Titel
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2757d6ef-4654-41d6-b34a-743cb9022db6
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: d766f63a-f7d1-4362-807e-2f2c6d603206 # Over ons – ondertitel
+            handle: null
+            instructions: null
+            label: Ondertitel
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4d004b3e-0c8f-4d8d-a1ab-b2cdc6938816
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: d9e4e378-9a82-4da8-8ff5-f02f66ed4d63 # Over ons – tekst
+            handle: null
+            instructions: null
+            label: Tekst
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4f0df44c-d216-455b-ab23-30ce6fdf9d7a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 985f8f82-86cd-42cf-94be-71544bca9bda # Over ons – link
+            handle: null
+            instructions: 'Laat leeg om naar de pagina "Ons verhaal" te linken.'
+            label: 'Link van de knop "Lees meer"'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8a29a1be-f08f-4212-b8b1-20d2448ea751
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Over ons'
+        uid: fa85a955-10b3-4b97-b3b5-07c71a8fa13e
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b330cbbe-620a-46ce-9018-a9f92c00cefa # Titel bierensectie
+            handle: null
+            instructions: 'Laat leeg voor "Onze bieren".'
+            label: 'Titel van de bierensectie'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dc019b60-9a98-46ca-a01e-2d7cdfc24d9f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'De bieren zelf beheer je onder **Entries → Bieren**. De fotoblokken staan onder **Globals → Algemeen** en de kaart gebruikt **Entries → Verkooppunten**.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 226a0a85-c3e2-41cc-bf66-31c661bb12e7
+            userCondition: null
+        name: Bieren
+        uid: 28eebb78-ba1d-4418-91ed-8ef8d815f821
+        userCondition: null
+    thumbFieldKey: null
+handle: home
+hasTitleField: false
+icon: house
+name: Home
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: Home
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

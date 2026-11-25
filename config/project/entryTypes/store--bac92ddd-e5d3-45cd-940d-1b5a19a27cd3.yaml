@@ -1,0 +1,80 @@
+allowLineBreaksInTitles: false
+color: rose
+description: null
+fieldLayouts:
+  c4cbc306-3c80-449a-8a3c-117d87212ef3:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: 'Naam van het verkooppunt'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 3673c2f6-bf18-4d05-8f8c-8c9db529720c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'Zoek het adres op of sleep de pin naar de juiste plek. Het adres verschijnt in het wolkje op de kaart onder **Waar te koop?** op de homepage.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 14a97f95-6eb1-45c5-9ff6-60ad8b409da4
+            userCondition: null
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a7c59d09-7f46-48d8-a5af-9582516501a2 # Locatie
+            handle: null
+            instructions: null
+            label: 'Adres en locatie'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: dfb726de-7775-4877-ba5f-827857f2f5b5
+            userCondition: null
+            warning: null
+            width: 100
+        name: Verkooppunt
+        uid: 299d43e5-7944-4811-be2e-e5a4012fde2c
+        userCondition: null
+    thumbFieldKey: null
+handle: store
+hasTitleField: true
+icon: store
+name: Verkooppunt
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: none
+uiLabelFormat: '{title}'

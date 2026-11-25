@@ -1,0 +1,13 @@
+{% extends '_layouts/base' %}
+
+{% block title %}{{ 'Pagina niet gevonden'|t }} | Frater Bier{% endblock %}
+
+{% block content %}
+    <section class="section bg-cream pt-[148px] text-navy">
+        <div class="mx-6 flex flex-col items-center text-center md:mx-[8vw]">
+            <h3>{{ '404'|t }}</h3>
+            <p>{{ 'De pagina die je zoekt bestaat niet (meer).'|t }}</p>
+            <a href="{{ siteUrl() }}" class="btn btn-primary">HOME</a>
+        </div>
+    </section>
+{% endblock %}

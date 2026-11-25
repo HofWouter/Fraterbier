@@ -1,0 +1,35 @@
+{# Bestelpagina: vervangt page-bestelformulier.php + aanvraagformulier-card.php #}
+{% extends '_layouts/base' %}
+
+{% block content %}
+    <section class="section bg-cream pt-[148px] text-navy">
+        {% include '_partials/section-title' with { title: entry.title } only %}
+        <p class="mb-8 text-center opacity-60">{{ 'Dit formulier is uitsluitend voor zakelijke klanten, '|t }}
+            <a href="{{ siteUrl() }}#google-maps-kaart" class="underline">{{ 'bekijk onze verkooppunten'|t }}</a>
+        </p>
+        <div class="mx-auto w-full max-w-[1100px] lg:max-w-[1200px]">
+            {% include '_partials/forms/order' %}
+        </div>
+    </section>
+
+    {# Melding bij het openen van de pagina (één keer per bezoek, zie notice-modal.js) #}
+    <dialog data-notice-modal="bestellen" aria-labelledby="bestel-melding-titel"
+        class="m-auto w-[calc(100%-32px)] max-w-[540px] rounded-card bg-dusk p-8 text-center text-cream backdrop:bg-navy/40">
+        <h4 id="bestel-melding-titel">{{ 'Let op'|t }}</h4>
+        <p class="mt-4">
+            {{ 'Dit formulier is uitsluitend voor zakelijke klanten, '|t }}
+            <a href="{{ siteUrl() }}#google-maps-kaart" class="underline">{{ 'bekijk onze verkooppunten'|t }}</a>
+        </p>
+        <div class="mt-2 flex flex-wrap items-center justify-center gap-x-4 [&_.btn]:my-2">
+            <a href="{{ siteUrl() }}#google-maps-kaart" class="btn bg-none text-cream transition-transform duration-200 ease-in-out hover:scale-110">{{ 'Naar de verkooppunten'|t }}</a>
+            <form method="dialog">
+                <button class="btn btn-primary" autofocus>{{ 'Doorgaan met bestellen'|t }}</button>
+            </form>
+        </div>
+    </dialog>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ alias('@web/js/order.js') }}?v=2.1.0" defer></script>
+    <script src="{{ alias('@web/js/notice-modal.js') }}?v=1.0.0" defer></script>
+{% endblock %}

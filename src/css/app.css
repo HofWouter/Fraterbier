@@ -1,0 +1,222 @@
+/*
+ * Frater Bier: Tailwind CSS (v4)
+ *
+ * Bouwen:   npm run build   (eenmalig, geminimaliseerd naar web/css/style.css)
+ * Ontwikkel: npm run dev     (houdt de templates in de gaten en bouwt opnieuw)
+ *
+ * De opmaak staat als utility-klassen in de Twig-templates. Hier staan alleen:
+ *  - de huisstijl (kleuren, fonts, breakpoints) als Tailwind-tokens
+ *  - basisstijlen voor HTML-elementen (ook voor tekst uit de CKEditor-velden)
+ *  - een paar componenten die op veel plekken terugkomen (.section, .btn, .input, .link)
+ *  - varianten voor de statusklassen die de JavaScript zet (is-active, is-open, ...)
+ */
+@import "tailwindcss";
+
+@source "../../templates";
+@source "../../web/js";
+
+/* ---------- Huisstijl ---------- */
+@theme {
+    /* Het ontwerp is in pixels gemaakt: 1 spacing-stap = 4px (p-6 = 24px), los van de html-fontgrootte */
+    --spacing: 4px;
+
+    --breakpoint-sm: 480px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+
+    --color-cream: #F6F3F0;
+    --color-navy: #2F3549;
+    --color-plum: #743B5F;
+    --color-sky: #00ABE9;
+    --color-sky-dark: #0088BB;
+    --color-slate: #68759E;
+    --color-dusk: #535E81;
+    --color-butter: #F4ECB4;
+    --color-error: #B3261E;
+
+    --font-display: 'Rosewood', serif;
+    --font-body: 'Fago Office Serif Regular', serif;
+    --font-body-bold: 'Fago Office Serif Bold', serif;
+
+    --text-small: 13px;
+    --text-body: 14px;
+    --text-ui: 16px;
+
+    --radius-card: 15px;
+    --radius-pill: 30px;
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --animate-menu-link: menu-link-in 0.5s ease-out forwards;
+
+    @keyframes menu-link-in {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+}
+
+/* Statusklassen die door de scripts worden gezet: gebruik als is-active:opacity-100 enz. */
+@custom-variant is-active (&:where(.is-active));
+@custom-variant is-open (&:where(.is-open));
+@custom-variant is-visible (&:where(.is-visible));
+@custom-variant is-selected (&:where(.is-selected));
+
+/* ---------- Fonts ---------- */
+@font-face {
+    font-family: 'Rosewood';
+    font-weight: normal;
+    font-display: swap;
+    src: url('../fonts/Rosewood.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Fago Office Serif Regular';
+    font-weight: normal;
+    font-display: swap;
+    src: url('../fonts/Fago Office Serif Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Fago Office Serif Bold';
+    font-weight: bold;
+    font-display: swap;
+    src: url('../fonts/Fago Office Serif Bold.otf') format('opentype');
+}
+
+/* ---------- Basisstijlen ---------- */
+@layer base {
+    html {
+        font-size: 87.5%;
+        line-height: normal;
+        font-family: var(--font-body);
+
+        @variant md {
+            font-size: 100%;
+        }
+    }
+
+    h1, h2, h3, h4, h5 {
+        font-family: var(--font-display);
+        font-weight: bold;
+    }
+
+    h1 {
+        font-size: 42px;
+        line-height: 1.2;
+
+        @variant md {
+            font-size: 50px;
+            line-height: 1;
+        }
+    }
+
+    h2 {
+        font-size: 34px;
+        line-height: 1.2;
+
+        @variant md {
+            font-size: 40px;
+            margin-block: 8px;
+        }
+    }
+
+    h3 {
+        font-size: 29px;
+        line-height: 1.4;
+        margin-block: 1em;
+
+        @variant md {
+            font-size: 33px;
+        }
+    }
+
+    h4 {
+        font-size: 24px;
+        line-height: 1.4;
+        margin-block: 4px;
+
+        @variant md {
+            font-size: 28px;
+            line-height: 1.2;
+        }
+    }
+
+    h5 {
+        font-size: 20px;
+        line-height: 1.4;
+        margin-block: 8px;
+
+        @variant md {
+            font-size: 23px;
+            margin-block: 4px;
+        }
+    }
+
+    p {
+        font-size: var(--text-body);
+        line-height: 1.5;
+        margin-bottom: 1rem;
+    }
+
+    label {
+        font-size: var(--text-body);
+        line-height: 1.5;
+    }
+
+    hr {
+        width: 100%;
+        border: 2px solid currentColor;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    /* Lijsten en links in tekst uit de CKEditor-velden */
+    .rich-text ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .rich-text ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .rich-text a { text-decoration: underline; }
+
+    /* Getalveld zonder de pijltjes van de browser (bestelformulier) */
+    input[type='number'].no-spinner {
+        appearance: textfield;
+    }
+    input[type='number'].no-spinner::-webkit-outer-spin-button,
+    input[type='number'].no-spinner::-webkit-inner-spin-button {
+        appearance: none;
+        margin: 0;
+    }
+
+    /* Leaflet-popup in de huisstijl */
+    .leaflet-popup-content {
+        font-family: var(--font-body);
+        font-size: var(--text-body);
+        color: var(--color-navy);
+    }
+}
+
+/* ---------- Componenten (komen op veel plekken terug) ---------- */
+@layer components {
+    /* Paginasectie: utilities als pt-37 of bg-cream overschrijven deze waarden */
+    .section {
+        @apply relative flex flex-col p-6 text-cream md:px-[8vw] lg:py-12;
+    }
+
+    .btn {
+        @apply my-[1rem] flex cursor-pointer items-center justify-center gap-[0.5rem] rounded-pill border-none px-6 py-3 font-body text-body lg:px-8 lg:py-[13px];
+    }
+
+    .btn-primary {
+        @apply bg-butter text-navy transition-transform duration-200 ease-in-out hover:scale-110;
+    }
+
+    .input {
+        @apply w-full rounded-card border-2 border-sky bg-sky/50 py-3 pr-3 pl-6 font-body text-body text-navy placeholder:text-navy/50;
+        @apply focus:border-sky-dark focus:bg-sky/70 focus:shadow-[0_0_0_3px_--alpha(var(--color-sky)/20%)] focus:outline-none;
+    }
+
+    .link {
+        @apply flex items-center gap-2 py-2 pr-2 font-body text-ui font-normal lg:gap-4;
+    }
+}

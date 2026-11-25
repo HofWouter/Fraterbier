@@ -1,0 +1,33 @@
+{# Fullscreen menu: vervangt template-parts/layout/menu.php. Openen/sluiten via menu.js (is-active + is-open) #}
+{% set homeUrl = siteUrl() %}
+
+{% set links = [
+    { url: onsVerhaal.url ?? homeUrl, label: 'Onze geschiedenis'|t, delay: '[animation-delay:100ms]' },
+    { url: homeUrl ~ '#onze-bieren-container', label: 'Onze bieren'|t, delay: '[animation-delay:100ms]' },
+    { url: homeUrl ~ '#google-maps-kaart', label: 'Waar te koop?'|t, delay: '[animation-delay:150ms]' },
+    { url: contact.url ?? homeUrl, label: 'Contact'|t, delay: '[animation-delay:200ms]' },
+] %}
+
+<section data-menu
+    style="--menu-bg: url('{{ alias('@web/assets/images/menu_background_image_2(compressed).png') }}');"
+    class="invisible fixed top-0 left-0 z-[1100] h-dvh w-screen -translate-y-[20%] bg-navy text-cream opacity-0
+        [transition:translate_0.5s_var(--ease-out-expo),opacity_0.4s_ease-out,visibility_0.5s]
+        before:absolute before:inset-0 before:-z-1 before:bg-(image:--menu-bg) before:bg-cover before:bg-center before:bg-no-repeat before:opacity-50
+        is-active:visible is-active:translate-y-0 is-active:opacity-100">
+    <div class="flex min-h-dvh flex-col justify-between px-6 pt-[131px] pb-6 md:mx-[8vw] md:flex-row md:items-center md:gap-[100px] md:pb-16">
+        <div class="flex flex-col gap-4">
+            {% for link in links %}
+                <a href="{{ link.url }}" data-menu-link
+                    class="inline-flex items-center font-display text-[34px] opacity-0 visited:text-white in-[.is-open]:animate-menu-link {{ link.delay }} sm:text-[42px] xl:text-[60px] [&:hover_span]:opacity-50">
+                    <span>{{ link.label }}</span>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="absolute bottom-0 hidden w-full flex-col items-center justify-between px-6 lg:my-2 lg:flex lg:flex-row lg:px-[8vw] [&_p]:mb-0">
+        <a class="btn" href="https://www.brouwgildehulsbergen.nl/" target="_blank" rel="noopener">
+            <img class="size-10" src="{{ alias('@web/assets/hulsbergen_logo.png') }}" alt="Brouwgilde Hulsbergen">
+        </a>
+        {% include '_partials/disclaimer-links' %}
+    </div>
+</section>

@@ -1,0 +1,21 @@
+defaultPlacement: beginning
+enableVersioning: true
+entryTypes:
+  -
+    uid: 2c96f6f7-8065-4bd8-9100-40021bc13cc6 # Bestelling
+handle: orders
+maxAuthors: 1
+minAuthors: 1
+name: Bestellingen
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: none
+siteSettings:
+  26d745cd-5fb4-4198-9690-b577dfef5785: # Nederlands
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: beerAlcohol
+instructions: null
+name: Alcoholpercentage
+searchable: false
+settings:
+  decimals: 1
+  defaultValue: null
+  max: 100
+  min: 0
+  prefix: null
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: null
+  suffix: '%'
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
+warning: null

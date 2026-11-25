@@ -1,0 +1,5 @@
+{% include '_blocks/photo-block' with {
+    id: 'wapenveld',
+    image: siteInfo.wapenveldImage.one() ?? null,
+    title: siteInfo.wapenveldTitle ?? '',
+} only %}

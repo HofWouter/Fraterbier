@@ -1,0 +1,19 @@
+{#
+ # Eén formulierveld in de stijl van het oude Contact Form 7-formulier.
+ # Variabelen: name, label, type (text|email|tel|textarea), required, value, errors,
+ # autocomplete (bijv. 'email'), remember (true = onthouden in de browser, zie remember-form.js)
+ #}
+{% set type = type ?? 'text' %}
+{% set errors = errors ?? [] %}
+{% set fieldId = 'field-' ~ name|replace('/[^a-z0-9]+/i', '-')|lower %}
+{% set extra = (autocomplete ?? false ? ' autocomplete="' ~ autocomplete ~ '"') ~ (remember ?? false ? ' data-remember') %}
+
+<label for="{{ fieldId }}" class="sr-only">{{ label }}</label>
+{% if type == 'textarea' %}
+    <textarea class="input" id="{{ fieldId }}" name="{{ name }}" rows="6" placeholder="{{ label }}{{ required ?? false ? ' *' }}"{{ required ?? false ? ' required' }}{{ extra|raw }}>{{ value ?? '' }}</textarea>
+{% else %}
+    <input class="input" type="{{ type }}" id="{{ fieldId }}" name="{{ name }}" value="{{ value ?? '' }}" placeholder="{{ label }}{{ required ?? false ? ' *' }}"{{ required ?? false ? ' required' }}{{ extra|raw }}>
+{% endif %}
+{% for error in errors %}
+    <p class="m-0 text-small text-error">{{ error }}</p>
+{% endfor %}

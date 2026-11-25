@@ -1,0 +1,88 @@
+allowLineBreaksInTitles: false
+color: sky
+description: null
+fieldLayouts:
+  2ff3ec8b-9bd0-495c-b5d9-cb3453ee2b6e:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: Paginatitel
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 560c6d09-19ee-42ad-bfe6-4af7291a4b56
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 34f8d4af-a721-4d6b-a1a9-d2734c03c470 # Uitgelichte afbeelding
+            handle: null
+            instructions: 'Zonder afbeelding wordt een standaardfoto getoond.'
+            label: 'Afbeelding bovenaan'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 60ab60be-6480-45b0-a6d1-28e9754a2f6e
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f03b9a51-af4b-4cab-b648-e86e3433b7c6 # Tekst
+            handle: null
+            instructions: null
+            label: Tekst
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b1a81dca-f573-4c88-a53f-8acd34475915
+            userCondition: null
+            warning: null
+            width: 100
+        name: Inhoud
+        uid: 6154067f-d35d-4c23-bd31-903bff96b470
+        userCondition: null
+    thumbFieldKey: null
+handle: page
+hasTitleField: true
+icon: file-lines
+name: Pagina
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+uiLabelFormat: '{title}'

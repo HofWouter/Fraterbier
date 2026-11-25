@@ -1,0 +1,180 @@
+fieldLayouts:
+  1c8bcb4f-0e0b-4267-a97a-6908a4ebe0b7:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'Wordt getoond in de footer en op de contactpagina.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 50f3380a-c956-4795-b9ac-e967182351cc
+            userCondition: null
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: b2074bc9-1e7e-412c-ba03-3d933a2bf032 # Adres
+            handle: null
+            instructions: 'Laat leeg voor het standaardadres van Brouwgilde Hulsbergen.'
+            label: Adres
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e2bd1546-5d7b-4f4c-ba6d-d18f2e09df78
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 9954265e-2702-47f7-b39a-962e9bd1e148 # E-mailadres
+            handle: null
+            instructions: null
+            label: E-mailadres
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 267d4c28-d305-4048-9630-bab071ca9ac0
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a1935c44-0e5d-4fd9-8944-3624c10c21f9 # Telefoonnummer
+            handle: null
+            instructions: 'Wordt alleen getoond als dit is ingevuld.'
+            label: Telefoonnummer
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 970f90a4-f7bb-40dd-ab34-d1380334e081
+            userCondition: null
+            warning: null
+            width: 50
+        name: Contactgegevens
+        uid: 5313cb7b-3804-4711-a9ec-ff9d7c89f5b2
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            elementCondition: null
+            heading: 'Fotoblok Wapenveld'
+            type: craft\fieldlayoutelements\Heading
+            uid: b3af234c-f7a4-4ab4-873f-053334c87f00
+            userCondition: null
+          -
+            dateAdded: null
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'Op de homepage en de contactpagina.'
+            type: craft\fieldlayoutelements\Tip
+            uid: 3c2beec6-b3ea-4d88-a467-944f8b82bb40
+            userCondition: null
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 59a176b0-3ea3-451e-bee1-919a5c8a7817 # Fotoblok Wapenveld – foto
+            handle: null
+            instructions: null
+            label: Foto
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9da06ec2-99fd-4922-a046-f1fc5d950234
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: a4644bd2-3fb3-4507-83df-7e329833c337 # Fotoblok Wapenveld – titel
+            handle: null
+            instructions: null
+            label: Titel
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e3c9e881-c52a-4923-a384-4a34a45f6cb0
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            elementCondition: null
+            heading: 'Fotoblok landschap'
+            type: craft\fieldlayoutelements\Heading
+            uid: 46208876-05b9-4ef9-a567-d58c2b23acd7
+            userCondition: null
+          -
+            dateAdded: null
+            dismissible: false
+            elementCondition: null
+            style: tip
+            tip: 'Op de homepage en de bestelpagina.'
+            type: craft\fieldlayoutelements\Tip
+            uid: cd4c864b-faa2-478b-bce1-d32eb5eca741
+            userCondition: null
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 306918a1-3b44-4d3e-8255-e21b2bb11667 # Fotoblok landschap – foto
+            handle: null
+            instructions: null
+            label: Foto
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3f129034-94e7-4ba6-bba9-dbddebf40fd6
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 0e37d9e7-9639-4450-ab57-c19cd6f09241 # Fotoblok landschap – titel
+            handle: null
+            instructions: null
+            label: Titel
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5f336320-fa78-43e9-a031-9203c65d6fd9
+            userCondition: null
+            warning: null
+            width: 50
+        name: Fotoblokken
+        uid: f64a3e87-ef6c-4ceb-b107-884eb0104bf1
+        userCondition: null
+    thumbFieldKey: null
+handle: siteInfo
+name: Algemeen
+sortOrder: 1

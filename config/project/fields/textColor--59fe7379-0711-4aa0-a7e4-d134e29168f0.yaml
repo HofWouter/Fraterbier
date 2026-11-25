@@ -1,0 +1,14 @@
+columnSuffix: null
+handle: textColor
+instructions: null
+name: Tekstkleur
+searchable: false
+settings:
+  allowCustomAlpha: false
+  allowCustomColors: true
+  fullGraphqlData: true
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Color
+warning: null

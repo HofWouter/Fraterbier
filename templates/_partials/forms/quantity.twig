@@ -1,0 +1,15 @@
+{#
+ # Aantal-kiezer (− [aantal] +). De knoppen werken via public_html/js/quantity.js.
+ # Variabelen: id, name, value, label (voor schermlezers), min (standaard 0), color (tekstkleur, standaard text-navy), class (extra klassen)
+ #}
+{% set min = min ?? 0 %}
+{% set color = color ?? 'text-navy' %}
+{% set btn = 'min-h-11 flex-[0_0_44px] border-none bg-sky/15 text-[20px] transition-colors duration-200 ease-in-out hover:bg-sky/35 focus-visible:bg-sky/35 focus-visible:outline-none ' ~ color %}
+
+<div class="flex items-stretch overflow-hidden rounded-pill border-2 border-sky {{ class ?? '' }}" data-quantity>
+    <button type="button" class="{{ btn }}" data-step="-1" aria-label="{{ 'Minder'|t }} {{ label }}">−</button>
+    <input class="no-spinner w-full min-w-0 flex-1 border-none bg-transparent text-center font-body-bold text-ui focus:bg-sky/10 focus:outline-none {{ color }}"
+        data-quantity-input type="number" id="{{ id }}" name="{{ name }}"
+        value="{{ value }}" min="{{ min }}" max="999" step="1" inputmode="numeric">
+    <button type="button" class="{{ btn }}" data-step="1" aria-label="{{ 'Meer'|t }} {{ label }}">+</button>
+</div>

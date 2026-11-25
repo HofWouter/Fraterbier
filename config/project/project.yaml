@@ -1,0 +1,134 @@
+dateModified: 1795023267
+elementSources:
+  craft\elements\Entry:
+    -
+      key: '*'
+      type: native
+    -
+      heading: Bestellingen
+      type: heading
+    -
+      key: 'section:8df63fb1-6a97-472e-a76e-86d3b17b4d92' # Bestellingen
+      tableAttributes:
+        - 'field:105b8882-3f8b-4d8e-867d-e1712aa17284' # Bestelling – status
+        - postDate
+        - 'field:f9129967-b932-4820-9c3a-36a525fae730' # Bestelling – bedrijfsnaam
+        - 'field:62b44b1f-e4b7-4ebc-af8e-1fe593eb3b39' # Bestelling – e-mailadres
+      type: native
+    -
+      heading: "Pagina's"
+      type: heading
+    -
+      key: singles
+      type: native
+    -
+      key: 'section:dd667576-81a9-40ac-bc80-b26499493c78' # Overige pagina's
+      type: native
+    -
+      heading: Assortiment
+      type: heading
+    -
+      key: 'section:ff4976bc-3c83-456c-b91e-858ce240b0c8' # Bieren
+      type: native
+    -
+      key: 'section:ea8147d9-176e-4586-b0ee-7275313fcc34' # Verkooppunten
+      type: native
+email:
+  fromEmail: $CRAFT_EMAIL_FROM
+  fromName: 'Frater Bier'
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  uploads:
+    hasUrls: true
+    name: Uploads
+    settings:
+      path: '@webroot/uploads'
+    type: craft\fs\Local
+    url: '@web/uploads'
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
+meta:
+  __names__:
+    0e37d9e7-9639-4450-ab57-c19cd6f09241: 'Fotoblok landschap – titel' # Fotoblok landschap – titel
+    1c73dbff-eb06-463a-942a-a1a3b5faed4a: Untappd-link # Untappd-link
+    2c96f6f7-8065-4bd8-9100-40021bc13cc6: Bestelling # Bestelling
+    2da87dbd-ffce-433f-9cb8-ee30144953cd: 'Bestelling – naam' # Bestelling – naam
+    3c45595b-f95f-4d2b-8424-d8c6185dd32d: 'Frater Bier' # Frater Bier
+    3c82096b-e6c3-4afa-8cf6-6d174200f791: Algemeen # Algemeen
+    3d82e303-5c12-49cc-bb1b-58166e89d33b: Bestellen # Bestellen
+    7a2b551f-5063-45f6-9ae5-aa8daab18bb8: Home # Home
+    7a3ae26f-d43e-4a50-aa14-e0780412ff86: 'Ons verhaal' # Ons verhaal
+    8df63fb1-6a97-472e-a76e-86d3b17b4d92: Bestellingen # Bestellingen
+    26d745cd-5fb4-4198-9690-b577dfef5785: Nederlands # Nederlands
+    32c4f368-8ec2-429f-8e30-48bca9abfb25: 'Bestelling – bieren' # Bestelling – bieren
+    34f8d4af-a721-4d6b-a1a9-d2734c03c470: 'Uitgelichte afbeelding' # Uitgelichte afbeelding
+    55a1c30a-aaee-464f-86ce-6fe6a28befdb: 'Bestelling – telefoonnummer' # Bestelling – telefoonnummer
+    59a176b0-3ea3-451e-bee1-919a5c8a7817: 'Fotoblok Wapenveld – foto' # Fotoblok Wapenveld – foto
+    59fe7379-0711-4aa0-a7e4-d134e29168f0: Tekstkleur # Tekstkleur
+    62b44b1f-e4b7-4ebc-af8e-1fe593eb3b39: 'Bestelling – e-mailadres' # Bestelling – e-mailadres
+    105b8882-3f8b-4d8e-867d-e1712aa17284: 'Bestelling – status' # Bestelling – status
+    503c953f-97f8-46b8-8233-f230a20dbdb5: Contact # Contact
+    675ee3b7-7b15-484b-b198-7fbb00539a68: Alcoholpercentage # Alcoholpercentage
+    985f8f82-86cd-42cf-94be-71544bca9bda: 'Over ons – link' # Over ons – link
+    2329b322-6688-4e9d-a167-f004f0143d6a: Contact # Contact
+    6596bee3-59d3-4a0a-9c50-e10b9b06bcdc: Simple # Simple
+    7436fb36-0497-4602-a140-f6edfac85bec: Afbeeldingen # Afbeeldingen
+    9008b0ab-4f07-4dc8-b543-a46751419a2a: Inhoud # Inhoud
+    57444c3f-acfe-4b1d-a4cb-d6a7bde3e425: Dansk # Dansk
+    306918a1-3b44-4d3e-8255-e21b2bb11667: 'Fotoblok landschap – foto' # Fotoblok landschap – foto
+    722233c1-16f4-4fc9-9ace-8b113aea28e1: Hero-achtergrondfoto # Hero-achtergrondfoto
+    1692339d-bf64-4aac-86a7-b333d3bc214e: 'Bestelling – taal' # Bestelling – taal
+    9954265e-2702-47f7-b39a-962e9bd1e148: E-mailadres # E-mailadres
+    24235475-701c-476b-88c8-7babaeb711a2: 'Bestelling – adres' # Bestelling – adres
+    40638515-8ff1-4ffc-9408-4de5e4082223: 'Bestelling – opmerkingen' # Bestelling – opmerkingen
+    82043678-7c60-448e-86ec-7e9b7472cf43: Ingrediënten # Ingrediënten
+    93491444-23cb-45f7-b6fa-5cda1c55f586: Serveersuggestie # Serveersuggestie
+    a7c59d09-7f46-48d8-a5af-9582516501a2: Locatie # Locatie
+    a723da83-4b92-4287-9a2b-130a54435cbc: Achtergrondkleur # Achtergrondkleur
+    a1935c44-0e5d-4fd9-8944-3624c10c21f9: Telefoonnummer # Telefoonnummer
+    a4644bd2-3fb3-4507-83df-7e329833c337: 'Fotoblok Wapenveld – titel' # Fotoblok Wapenveld – titel
+    a55404cc-ca60-4e92-934b-3955c30c24eb: Welkomsttekst # Welkomsttekst
+    b27ace8d-41e9-40d8-bde9-39e5fbafb94a: 'Afbeelding bier' # Afbeelding bier
+    b80fee6c-5b4c-4091-a7e0-99d02d864d55: Home # Home
+    b330cbbe-620a-46ce-9018-a9f92c00cefa: 'Titel bierensectie' # Titel bierensectie
+    b2074bc9-1e7e-412c-ba03-3d933a2bf032: Adres # Adres
+    bac92ddd-e5d3-45cd-940d-1b5a19a27cd3: Verkooppunt # Verkooppunt
+    cb9c5700-262c-4f9f-bafc-5e4e6a49be05: 'Over ons – titel' # Over ons – titel
+    d9e4e378-9a82-4da8-8ff5-f02f66ed4d63: 'Over ons – tekst' # Over ons – tekst
+    d766f63a-f7d1-4362-807e-2f2c6d603206: 'Over ons – ondertitel' # Over ons – ondertitel
+    dbcdcdba-0da9-4f67-82d5-1b45bfdecd46: Bier # Bier
+    dd667576-81a9-40ac-bc80-b26499493c78: "Overige pagina's" # Overige pagina's
+    ea8147d9-176e-4586-b0ee-7275313fcc34: Verkooppunten # Verkooppunten
+    ebf681ad-bd5f-402c-80e9-d400b8f26bc0: Smaakprofiel # Smaakprofiel
+    f03b9a51-af4b-4cab-b648-e86e3433b7c6: Tekst # Tekst
+    f9129967-b932-4820-9c3a-36a525fae730: 'Bestelling – bedrijfsnaam' # Bestelling – bedrijfsnaam
+    fd1909d5-ff7f-4678-8ec8-c450d27ca606: Pagina # Pagina
+    ff4976bc-3c83-456c-b91e-858ce240b0c8: Bieren # Bieren
+plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  simplemap:
+    edition: lite
+    enabled: true
+    schemaVersion: 3.4.2
+system:
+  edition: solo
+  live: true
+  name: 'Frater Bier'
+  schemaVersion: 5.12.0.2
+  timeZone: Europe/Amsterdam
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  require2fa: false
+  requireEmailVerification: true

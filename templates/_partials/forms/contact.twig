@@ -1,0 +1,35 @@
+{#
+ # Contactformulier via de Contact Form-plugin (vervangt Contact Form 7).
+ # Bij een validatiefout zet de plugin de variabele `submission` met de ingevulde waarden.
+ #}
+{% set submission = submission ?? null %}
+{% set values = submission and submission.message is iterable ? submission.message : {} %}
+
+<form method="post" class="flex flex-1 flex-col gap-[1rem]" accept-charset="UTF-8">
+    {{ csrfInput() }}
+    {{ actionInput('contact-form/send') }}
+    {{ redirectInput(entry.url) }}
+    {{ hiddenInput('successMessage', 'Bedankt! Je bericht is verstuurd, we nemen zo snel mogelijk contact met je op.'|t|hash) }}
+    {{ hiddenInput('failMessage', 'Er ging iets mis met het versturen. Controleer de velden en probeer het opnieuw.'|t|hash) }}
+    {{ hiddenInput('subject', 'Contactformulier'|t) }}
+
+    {% include '_partials/forms/notice' %}
+
+    {% include '_partials/forms/field' with {
+        name: 'fromName', label: 'Naam'|t, required: true, autocomplete: 'name', remember: true,
+        value: submission.fromName ?? '', errors: submission ? submission.getErrors('fromName') : [],
+    } only %}
+    {% include '_partials/forms/field' with {
+        name: 'fromEmail', label: 'E-mailadres'|t, type: 'email', required: true, autocomplete: 'email', remember: true,
+        value: submission.fromEmail ?? '', errors: submission ? submission.getErrors('fromEmail') : [],
+    } only %}
+    {% include '_partials/forms/field' with {
+        name: 'message[body]', label: 'Bericht'|t, type: 'textarea', required: true,
+        value: values['body'] ?? '',
+        errors: submission ? submission.getErrors('message') : [],
+    } only %}
+
+    {% include '_partials/forms/remember' %}
+
+    <button type="submit" class="btn btn-primary">{{ 'Versturen'|t }}</button>
+</form>

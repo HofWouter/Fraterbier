@@ -1,0 +1,49 @@
+columnSuffix: null
+handle: orderBeers
+instructions: null
+name: 'Bestelling – bieren'
+searchable: false
+settings:
+  addRowLabel: 'Bier toevoegen'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Bier
+            -
+              - handle
+              - bier
+            -
+              - type
+              - singleline
+            -
+              - width
+              - ''
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - Dozen
+            -
+              - handle
+              - dozen
+            -
+              - type
+              - number
+            -
+              - width
+              - '120'
+  maxRows: null
+  minRows: null
+  staticRows: false
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table
+warning: null

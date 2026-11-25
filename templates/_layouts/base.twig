@@ -1,0 +1,45 @@
+{#
+ # Basislayout: vervangt header.php + footer.php uit het WordPress-thema.
+ #}
+{%- set entry = entry ?? null -%}
+
+{# Links naar dezelfde pagina in de andere talen (vervangt pll_the_languages) #}
+{%- set localizedUrls = [] -%}
+{%- for site in craft.app.sites.allSites -%}
+    {%- set localized = entry ? craft.entries.id(entry.id).siteId(site.id).one() : null -%}
+    {%- set localizedUrls = localizedUrls|merge([{
+        site: site,
+        url: localized.url ?? site.baseUrl,
+        current: site.id == currentSite.id,
+    }]) -%}
+{%- endfor -%}
+
+<!DOCTYPE html>
+<html lang="{{ currentSite.language }}">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}{{ entry and entry.section.handle != 'home' ? entry.title ~ ' | ' }}Frater Bier{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% for item in localizedUrls %}
+            <link rel="alternate" hreflang="{{ item.site.language }}" href="{{ item.url }}">
+        {% endfor %}
+        <link rel="stylesheet" href="{{ alias('@web/css/style.css') }}?v=3.0.0">
+    </head>
+    <body>
+        {% include '_partials/language-selector' %}
+        {% include '_partials/nav' %}
+        {% include '_partials/menu' %}
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        {% include '_partials/footer' %}
+
+        <script src="{{ alias('@web/js/menu.js') }}?v=3.1.0" defer></script>
+        <script src="{{ alias('@web/js/carousel.js') }}?v=3.0.0" defer></script>
+        <script src="{{ alias('@web/js/quantity.js') }}?v=1.0.0" defer></script>
+        <script src="{{ alias('@web/js/remember-form.js') }}?v=1.0.0" defer></script>
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

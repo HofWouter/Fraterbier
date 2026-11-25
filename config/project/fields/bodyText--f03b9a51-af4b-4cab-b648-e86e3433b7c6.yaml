@@ -1,0 +1,28 @@
+columnSuffix: null
+handle: bodyText
+instructions: null
+name: Tekst
+searchable: false
+settings:
+  availableTransforms: '*'
+  availableVolumes: '*'
+  characterLimit: null
+  ckeConfig: 6596bee3-59d3-4a0a-9c50-e10b9b06bcdc # Simple
+  createButtonLabel: null
+  defaultTransform: null
+  expandEntryButtons: false
+  fullGraphqlData: true
+  parseEmbeds: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: false
+  sourceEditingGroups:
+    - __ADMINS__
+  wordLimit: null
+tip: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\ckeditor\Field
+warning: null

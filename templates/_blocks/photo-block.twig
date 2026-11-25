@@ -1,0 +1,16 @@
+{#
+ # Fotoblok met titel. Vervangt wapenveld-card.php en landschap-card.php.
+ # Variabelen: id ('wapenveld' of 'landschap'), image (Asset|null), title (string)
+ #}
+<section id="{{ id }}"
+    class="section isolate py-[188px] before:absolute before:inset-0 before:z-0 before:bg-(image:--bg-fotoblok) before:bg-cover before:bg-center before:bg-no-repeat
+        {{- id == 'landschap' ? ' items-center justify-center text-center' }}"
+    {%- if image %} style="--bg-fotoblok: url('{{ image.url }}');"{% endif %}>
+    {% if id == 'wapenveld' %}
+        <div class="relative z-1 mx-6 flex flex-col items-center text-center md:mx-[8vw]">
+    {% else %}
+        <div class="relative z-1 flex max-w-[500px] flex-col gap-[26px] md:max-w-[700px] md:gap-6">
+    {% endif %}
+        <h3>{{ title }}</h3>
+    </div>
+</section>

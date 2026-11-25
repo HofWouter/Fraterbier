@@ -1,0 +1,18 @@
+columnSuffix: null
+handle: orderAddress
+instructions: null
+name: 'Bestelling – adres'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 3
+  multiline: true
+  placeholder: null
+  uiMode: normal
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
+warning: null

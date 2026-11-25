@@ -1,0 +1,12 @@
+{# Hero: vervangt template-parts/layout/hero.php #}
+{% set heroImage = entry.heroImage.one() ?? null %}
+
+<section class="relative flex h-screen w-full flex-col justify-center text-cream
+    before:absolute before:inset-0 before:-z-1 before:bg-(image:--bg-image) before:bg-cover before:bg-center before:bg-no-repeat"
+    {%- if heroImage %} style="--bg-image: url('{{ heroImage.url }}')"{% endif %}>
+    <div class="mx-6 flex flex-col items-center gap-[300px] text-center sm:gap-[250px] md:mx-[8vw]">
+        <h1 data-reveal class="m-1 -translate-y-[60px] text-[80px] opacity-0 [transition:translate_1s_var(--ease-out-expo),opacity_1s_ease-in-out] is-visible:translate-y-0 is-visible:opacity-100 lg:text-[90px] xl:text-[128px]">{{ entry.heroText }}</h1>
+        <a href="#onze-bieren-container" class="btn btn-primary z-[1000] bg-sky text-cream">{{ 'Bekijk meer'|t }}</a>
+    </div>
+    <img src="{{ alias('@web/assets/images/header_overlay.png') }}" alt="" class="absolute inset-0 z-[500] size-full object-cover object-center">
+</section>

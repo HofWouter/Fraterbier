@@ -1,0 +1,34 @@
+columnSuffix: null
+handle: storeLocation
+instructions: null
+name: Locatie
+searchable: false
+settings:
+  boundary: '""'
+  boundaryRestrictionNELat: null
+  boundaryRestrictionNELng: null
+  boundaryRestrictionSWLat: null
+  boundaryRestrictionSWLng: null
+  country: null
+  countryRestriction: null
+  height: null
+  hideAddress: false
+  hideLatLng: null
+  hideMap: false
+  hideSearch: false
+  lat: 52.4339
+  lng: 6.0726
+  maxZoom: 18.0
+  minZoom: 3.0
+  showCurrentLocation: false
+  showLatLng: false
+  showW3WField: false
+  showW3WGrid: false
+  size: normal
+  typeRestriction: null
+  zoom: 13
+tip: null
+translationKeyFormat: null
+translationMethod: none
+type: ether\simplemap\fields\MapField
+warning: null

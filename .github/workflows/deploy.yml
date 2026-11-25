@@ -1,9 +1,10 @@
-name: Deploy Theme to Strato
+name: Deploy Craft-site naar Strato
 
+# Alleen handmatig starten (Actions > Deploy > Run workflow).
+# Benodigde secrets: SFTP_HOST, SFTP_USERNAME, SFTP_PASSWORD, SFTP_REMOTE_PATH
+# SFTP_REMOTE_PATH = de map van het Craft-project op de server (de map BOVEN public_html/).
 on:
-  push:
-    branches:
-      - main # Verander dit naar 'master' als jouw hoofdtak zo heet
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -12,6 +13,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: PHP installeren
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Composer-dependencies installeren
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Node installeren
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: CSS bouwen (Tailwind)
+        run: npm ci && npm run build && rm -rf node_modules
+
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -19,7 +36,10 @@ jobs:
           server: ${{ secrets.SFTP_HOST }}
           port: 22
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: './*' # Uploadt alles uit je git-repository
-          remote_path: '/home/www/public/wp-content/themes/Frater-thema'
-          delete_remote_files: true;
-          
+          local_path: './*'
+          remote_path: ${{ secrets.SFTP_REMOTE_PATH }}
+          # Niet verwijderen: anders verdwijnen .env, storage/ en public_html/uploads/ op de server
+          delete_remote_files: false
+
+      # Na het uploaden moet `php craft up` op de server draaien (via SSH of het
+      # Strato-controlepaneel) om migraties en project config toe te passen.

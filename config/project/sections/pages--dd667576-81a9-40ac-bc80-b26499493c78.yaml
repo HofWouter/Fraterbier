@@ -1,0 +1,29 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: fd1909d5-ff7f-4678-8ec8-c450d27ca606 # Pagina
+handle: pages
+maxAuthors: 1
+minAuthors: 1
+name: "Overige pagina's"
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  26d745cd-5fb4-4198-9690-b577dfef5785: # Nederlands
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/entry
+    uriFormat: '{parent.uri ?? null}{parent ? "/" : ""}{slug}'
+  57444c3f-acfe-4b1d-a4cb-d6a7bde3e425: # Dansk
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/entry
+    uriFormat: '{parent.uri ?? null}{parent ? "/" : ""}{slug}'
+structure:
+  maxLevels: null
+  uid: 60ff481e-1b5e-49b1-b1b4-f5341816539b
+type: structure

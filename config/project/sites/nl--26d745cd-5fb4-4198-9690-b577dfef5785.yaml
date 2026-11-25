@@ -1,0 +1,9 @@
+baseUrl: '@web/'
+enabled: true
+handle: nl
+hasUrls: true
+language: nl
+name: Nederlands
+primary: true
+siteGroup: 3c45595b-f95f-4d2b-8424-d8c6185dd32d # Frater Bier
+sortOrder: 1

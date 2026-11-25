@@ -1,0 +1,213 @@
+allowLineBreaksInTitles: false
+color: green
+description: null
+fieldLayouts:
+  78af2de7-04fe-456b-9a90-72fb7db01b2f:
+    cardThumbAlignment: end
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            dateAdded: null
+            disabled: false
+            elementCondition: null
+            id: null
+            inputType: null
+            instructions: null
+            label: Omschrijving
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            required: true
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 45527fa2-19c5-4537-9fac-444d4122c693
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 105b8882-3f8b-4d8e-867d-e1712aa17284 # Bestelling – status
+            handle: null
+            instructions: null
+            label: Status
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ca3d599c-1469-4d85-8539-feb629523f00
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 1692339d-bf64-4aac-86a7-b333d3bc214e # Bestelling – taal
+            handle: null
+            instructions: null
+            label: 'Besteld via (taal)'
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7c2d90f7-f11d-47fa-b2c1-baeb944e037b
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 32c4f368-8ec2-429f-8e30-48bca9abfb25 # Bestelling – bieren
+            handle: null
+            instructions: null
+            label: Bieren
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 627ac8cb-4183-4576-bd87-ddfccb89c024
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 40638515-8ff1-4ffc-9408-4de5e4082223 # Bestelling – opmerkingen
+            handle: null
+            instructions: null
+            label: Opmerkingen
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 84305eca-604a-43a1-b81e-08cb49403a26
+            userCondition: null
+            warning: null
+            width: 100
+        name: Bestelling
+        uid: 2c96dee1-d035-47d2-b60e-da7dec7b6f88
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: f9129967-b932-4820-9c3a-36a525fae730 # Bestelling – bedrijfsnaam
+            handle: null
+            instructions: null
+            label: Bedrijfsnaam
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 642481f1-6b18-495e-8402-70612539121c
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 2da87dbd-ffce-433f-9cb8-ee30144953cd # Bestelling – naam
+            handle: null
+            instructions: null
+            label: Naam
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1f289282-80a8-4e94-8aea-096b4cc5f7c5
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 62b44b1f-e4b7-4ebc-af8e-1fe593eb3b39 # Bestelling – e-mailadres
+            handle: null
+            instructions: null
+            label: E-mailadres
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b991a1b5-d9f5-4c74-b6b4-5341858dedb5
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 55a1c30a-aaee-464f-86ce-6fe6a28befdb # Bestelling – telefoonnummer
+            handle: null
+            instructions: null
+            label: Telefoonnummer
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3a0756d8-66c6-47e1-a9f8-535b11708861
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: null
+            editCondition: null
+            elementCondition: null
+            elementEditCondition: null
+            fieldUid: 24235475-701c-476b-88c8-7babaeb711a2 # Bestelling – adres
+            handle: null
+            instructions: null
+            label: Adres
+            oldFieldUid: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b5fe5a56-a02f-458e-8d14-e4cd98af4be2
+            userCondition: null
+            warning: null
+            width: 100
+        name: Klant
+        uid: eac9defb-1d38-48a2-a928-7296db1fd2d0
+        userCondition: null
+    thumbFieldKey: null
+handle: order
+hasTitleField: true
+icon: cart-shopping
+name: Bestelling
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: none
+uiLabelFormat: '{title}'

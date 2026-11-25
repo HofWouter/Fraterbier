@@ -1,0 +1,26 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  -
+    uid: 2c96f6f7-8065-4bd8-9100-40021bc13cc6 # Bestelling
+handle: bestellen
+maxAuthors: 1
+minAuthors: 1
+name: Bestellen
+previewTargets:
+  -
+    label: 'Primary entry page'
+    urlFormat: '{url}'
+propagationMethod: all
+siteSettings:
+  26d745cd-5fb4-4198-9690-b577dfef5785: # Nederlands
+    enabledByDefault: true
+    hasUrls: true
+    template: _singles/bestellen
+    uriFormat: bestellen
+  57444c3f-acfe-4b1d-a4cb-d6a7bde3e425: # Dansk
+    enabledByDefault: true
+    hasUrls: true
+    template: _singles/bestellen
+    uriFormat: bestil
+type: single

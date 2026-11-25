@@ -1,0 +1,148 @@
+{#
+ # Bestelformulier voor zakelijke klanten (Contact Form-plugin).
+ # Per bier uit de sectie "Bieren" een aantal-veld; extra velden gaan mee als message[Label]
+ # en de plugin zet ze allemaal in de e-mail. Bieren met aantal 0 worden niet meegestuurd (order.js).
+ #}
+{% set submission = submission ?? null %}
+{% set values = submission and submission.message is iterable ? submission.message : {} %}
+{% set beers = craft.entries.section('beers').with(['beerImage']).all() %}
+
+{# Aantallen die vanuit de carousel op de homepage zijn meegegeven: ?dozen[<bier-id>]=3 #}
+{% set requested = craft.app.request.getQueryParam('dozen') %}
+{% set requested = requested is iterable ? requested : {} %}
+
+{# Terugkerende klassen #}
+{% set step = 'm-0 flex min-w-0 flex-col gap-4 border-none p-0' %}
+{% set legend = 'mb-4 flex items-center gap-3 p-0 font-display text-[24px] text-navy' %}
+{% set number = 'inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-sky font-body-bold text-ui text-cream' %}
+{% set cell = 'flex min-w-0 flex-col gap-1' %}
+
+<form method="post" accept-charset="UTF-8" data-order-form
+    class="flex flex-col gap-10 lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-12 lg:[&>p]:col-span-full"
+    data-error-empty="{{ 'Kies minimaal één bier.'|t }}">
+    {{ csrfInput() }}
+    {{ actionInput('contact-form/send') }}
+    {{ redirectInput(entry.url) }}
+    {{ hiddenInput('successMessage', 'Bedankt! Je bericht is verstuurd, we nemen zo snel mogelijk contact met je op.'|t|hash) }}
+    {{ hiddenInput('failMessage', 'Er ging iets mis met het versturen. Controleer de velden en probeer het opnieuw.'|t|hash) }}
+    {{ hiddenInput('subject', 'Bestelaanvraag'|t) }}
+    {{ hiddenInput('orderForm', '1') }}{# herkenning voor modules/orders: bestelling ook opslaan in het CMS #}
+
+    {% include '_partials/forms/notice' %}
+
+    {# ---------- 1. Bieren (op desktop de linkerkolom) ---------- #}
+    <fieldset class="{{ step }}">
+        <legend class="{{ legend }}"><span class="{{ number }}">1</span> {{ 'Kies je bieren'|t }}</legend>
+
+        {% if beers|length %}
+            <div class="grid grid-cols-[repeat(auto-fill,minmax(160px,1fr))] gap-4 md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] md:gap-6 lg:grid-cols-[repeat(auto-fill,minmax(180px,1fr))]">
+                {% for beer in beers %}
+                    {% set key = beer.title ~ ' (dozen)' %}
+                    {% set image = beer.beerImage|first %}
+                    {% set inputId = 'aantal-' ~ beer.id %}
+                    {% set preset = requested[beer.id] ?? 0 %}
+                    {% set preset = preset is iterable ? 0 : max(0, min(preset|integer, 999)) %}
+                    <div data-order-beer id="bier-{{ beer.id }}"
+                        class="scroll-mt-35 flex flex-col overflow-hidden rounded-card border-2 border-transparent bg-white shadow-[0_2px_8px_--alpha(var(--color-navy)/8%)] transition-[border-color,translate] duration-200 ease-in-out is-selected:-translate-y-0.5 is-selected:border-sky">
+                        <div class="flex aspect-4/3 items-center justify-center p-3" style="background-color: {{ beer.backgroundColor.hex ?? '#743B5F' }};">
+                            {% if image %}<img src="{{ image.url }}" alt="" loading="lazy" class="max-h-full max-w-full object-contain">{% endif %}
+                        </div>
+                        <div class="flex flex-1 flex-col gap-1 px-4 pt-3 pb-4">
+                            <h5 class="m-0">{{ beer.title }}</h5>
+                            <p class="mt-0 mb-2 text-small opacity-60">
+                                {{- beer.beerVolume ? beer.beerVolume ~ 'ml' -}}
+                                {{- beer.beerVolume and beer.beerAlcohol ? ' · ' -}}
+                                {{- beer.beerAlcohol ? 'ALC. ' ~ beer.beerAlcohol|number_format(1, ',', '.') ~ '%' -}}
+                            </p>
+                            <label class="mt-auto text-small" for="{{ inputId }}">{{ 'Aantal dozen'|t }}</label>
+                            {% include '_partials/forms/quantity' with {
+                                id: inputId, name: 'message[' ~ key ~ ']', label: beer.title,
+                                value: values[key] ?? preset,
+                            } only %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <p class="m-0 text-small text-error" data-order-error hidden></p>
+        {% else %}
+            <p>{{ 'Er zijn nog geen bieren om te bestellen.'|t }}</p>
+        {% endif %}
+    </fieldset>
+
+    {# Rechterkolom op desktop (blijft in beeld tijdens het scrollen): gegevens, opmerkingen en verstuurknop #}
+    <div class="flex min-w-0 flex-col gap-10 lg:sticky lg:top-30">
+        {# ---------- 2. Gegevens ---------- #}
+        <fieldset class="{{ step }}">
+            <legend class="{{ legend }}"><span class="{{ number }}">2</span> {{ 'Je gegevens'|t }}</legend>
+
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-x-6 lg:grid-cols-1">
+                <div class="{{ cell }}">
+                    {% include '_partials/forms/field' with {
+                        name: 'fromName', label: 'Naam'|t, required: true, autocomplete: 'name', remember: true,
+                        value: submission.fromName ?? '', errors: submission ? submission.getErrors('fromName') : [],
+                    } only %}
+                </div>
+                <div class="{{ cell }}">
+                    {% include '_partials/forms/field' with {
+                        name: 'message[Bedrijfsnaam]', label: 'Bedrijfsnaam'|t, autocomplete: 'organization', remember: true, value: values['Bedrijfsnaam'] ?? '',
+                    } only %}
+                </div>
+                <div class="{{ cell }}">
+                    {% include '_partials/forms/field' with {
+                        name: 'fromEmail', label: 'E-mailadres'|t, type: 'email', required: true, autocomplete: 'email', remember: true,
+                        value: submission.fromEmail ?? '', errors: submission ? submission.getErrors('fromEmail') : [],
+                    } only %}
+                </div>
+                <div class="{{ cell }}">
+                    {% include '_partials/forms/field' with {
+                        name: 'message[Telefoonnummer]', label: 'Telefoonnummer (met landcode)'|t, type: 'tel', autocomplete: 'tel', remember: true, value: values['Telefoonnummer'] ?? '',
+                    } only %}
+                </div>
+                {# Straat | Nr. #}
+                <div class="grid grid-cols-[1fr_96px] gap-4 md:grid-cols-[1fr_120px] md:gap-6">
+                    <div class="{{ cell }}">
+                        {% include '_partials/forms/field' with {
+                            name: 'message[Straat]', label: 'Straat'|t, autocomplete: 'address-line1', remember: true, value: values['Straat'] ?? '',
+                        } only %}
+                    </div>
+                    <div class="{{ cell }}">
+                        {% include '_partials/forms/field' with {
+                            name: 'message[Nr.]', label: 'Nr.'|t, remember: true, value: values['Nr.'] ?? '',
+                        } only %}
+                    </div>
+                </div>
+                {# Postcode | Plaats #}
+                <div class="grid grid-cols-[112px_1fr] gap-4 md:grid-cols-[140px_1fr] md:gap-6">
+                    <div class="{{ cell }}">
+                        {% include '_partials/forms/field' with {
+                            name: 'message[Postcode]', label: 'Postcode'|t, autocomplete: 'postal-code', remember: true, value: values['Postcode'] ?? '',
+                        } only %}
+                    </div>
+                    <div class="{{ cell }}">
+                        {% include '_partials/forms/field' with {
+                            name: 'message[Plaats]', label: 'Plaats'|t, autocomplete: 'address-level2', remember: true, value: values['Plaats'] ?? '',
+                        } only %}
+                    </div>
+                </div>
+                <div class="{{ cell }} md:col-span-full">
+                    {% include '_partials/forms/field' with {
+                        name: 'message[Land]', label: 'Land'|t, autocomplete: 'country-name', remember: true, value: values['Land'] ?? '',
+                    } only %}
+                </div>
+            </div>
+        </fieldset>
+
+        {# ---------- 3. Opmerkingen ---------- #}
+        <fieldset class="{{ step }}">
+            <legend class="{{ legend }}"><span class="{{ number }}">3</span> {{ 'Opmerkingen'|t }}</legend>
+            {% include '_partials/forms/field' with {
+                name: 'message[body]', label: 'Bijvoorbeeld een gewenste leverdatum (optioneel)'|t, type: 'textarea',
+                value: values['body'] ?? '', errors: submission ? submission.getErrors('message') : [],
+            } only %}
+        </fieldset>
+
+        {% include '_partials/forms/remember' %}
+
+        <button type="submit" class="btn btn-primary self-stretch px-8 py-4 text-ui md:self-end lg:self-stretch">{{ 'Bestelling versturen'|t }}</button>
+    </div>
+</form>
