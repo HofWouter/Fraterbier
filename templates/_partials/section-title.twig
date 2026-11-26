@@ -2,8 +2,8 @@
  # Sectietitel met een lijn links en rechts. De titel schuift in beeld zodra hij zichtbaar wordt (menu.js, data-reveal).
  # Variabelen: title
  #}
-<div class="mb-[1rem] flex w-full flex-wrap items-center gap-6 md:mb-6 xl:gap-8">
-    <hr class="w-auto flex-1">
+<div class="mb-[1rem] flex w-full items-center gap-4 md:mb-6 md:gap-6 xl:gap-8">
+    <hr class="min-w-6 flex-1">
     <h2 data-reveal class="min-w-0 shrink -translate-y-5 opacity-0 [transition:translate_0.5s_var(--ease-out-expo),opacity_0.4s_ease-out] is-visible:translate-y-0 is-visible:opacity-100">{{ title }}</h2>
-    <hr class="w-auto flex-1">
+    <hr class="min-w-6 flex-1">
 </div>

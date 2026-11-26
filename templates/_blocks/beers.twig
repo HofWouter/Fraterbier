@@ -25,13 +25,13 @@
         {% if beers|length %}
         <div class="flex w-full items-center justify-between overflow-hidden">
             {% include '_partials/icons/water' %}
-            <div class="grid grid-cols-1 items-center justify-items-center md:grid-cols-2">
+            <div class="grid min-w-0 flex-1 grid-cols-1 items-center justify-items-center md:grid-cols-2">
                 <div class="{{ carousel }}">
                     <div class="flex w-full transition-transform duration-500 ease-in-out" data-carousel-images>
                         {% for beer in beers %}
                             {% set image = beer.beerImage|first %}
-                            <div class="min-w-full text-center">
-                                {% if image %}<img src="{{ image.url }}" alt="{{ beer.title }}" class="inline max-w-none">{% endif %}
+                            <div class="flex min-w-full justify-center">
+                                {% if image %}<img src="{{ image.url }}" alt="{{ beer.title }}" class="max-w-[75%] md:max-w-none">{% endif %}
                             </div>
                         {% endfor %}
                     </div>
