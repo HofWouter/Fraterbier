@@ -1,9 +1,9 @@
 name: Deploy Craft-site naar server
 
 # Start automatisch bij elke push naar main, of handmatig (Actions > Deploy > Run workflow).
-# Benodigde secrets: SERVER_HOST, SERVER_USERNAME, SERVER_SSH_KEY, SFTP_REMOTE_PATH
+# Benodigde secrets: SERVER_HOST, SERVER_USERNAME, SERVER_SSH_KEY, SERVER_REMOTE_PATH
 # Optioneel: SERVER_PORT (standaard 22).
-# SFTP_REMOTE_PATH = de map van het Craft-project op de server (de map BOVEN public_html/).
+# SERVER_REMOTE_PATH = de map van het Craft-project op de server (de map BOVEN public_html/).
 on:
   push:
     branches: [main]
@@ -59,8 +59,16 @@ jobs:
         env:
           TARGET: ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}
           SERVER_PORT: ${{ secrets.SERVER_PORT || '22' }}
-          REMOTE_PATH: ${{ secrets.SFTP_REMOTE_PATH }}
+          REMOTE_PATH: ${{ secrets.SERVER_REMOTE_PATH }}
         run: |
+          set -euo pipefail
+          # Veiligheidscheck: stop als het pad leeg is of daar geen Craft-project staat.
+          if [ -z "${REMOTE_PATH%/}" ]; then
+            echo "::error::Secret SERVER_REMOTE_PATH is leeg of ontbreekt."; exit 1
+          fi
+          ssh -p "$SERVER_PORT" "$TARGET" "test -f '${REMOTE_PATH%/}/craft'" \
+            || { echo "::error::Geen Craft-project gevonden in $REMOTE_PATH op de server."; exit 1; }
+
           rsync -az --no-perms --omit-dir-times --itemize-changes \
             -e "ssh -p $SERVER_PORT" \
             --exclude='.git/' --exclude='.github/' --exclude='.ddev/' \
@@ -73,5 +81,5 @@ jobs:
         env:
           TARGET: ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOST }}
           SERVER_PORT: ${{ secrets.SERVER_PORT || '22' }}
-          REMOTE_PATH: ${{ secrets.SFTP_REMOTE_PATH }}
+          REMOTE_PATH: ${{ secrets.SERVER_REMOTE_PATH }}
         run: ssh -p "$SERVER_PORT" "$TARGET" "cd '${REMOTE_PATH%/}' && php craft up --interactive=0"
